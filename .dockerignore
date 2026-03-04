@@ -1,0 +1,48 @@
+# Игнорируем файлы версий
+.git
+.gitignore
+
+# Игнорируем файлы с персональными данными
+.env
+data/credentials/*.enc
+data/contacts/*.xlsx
+
+# Игнорируем отчеты
+data/reports/*
+!data/reports/.gitkeep
+
+# Игнорируем логи
+logs/*.log
+!logs/.gitkeep
+
+# Игнорируем временные файлы
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Игнорируем резервные копии
+*.bak
+*.swp
+*~
+
+# Игнорируем старые файлы (убрать в проде) 
+save_credentials.py
+smtp.py
+new (2).py

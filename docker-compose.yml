@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  ai-assistant:
+    build: .
+    container_name: ai_curator_assistant
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./templates:/app/templates
+    environment:
+      - SMTP_SERVER=${SMTP_SERVER}
+      - SMTP_PORT=${SMTP_PORT}
+      - SENDER_EMAIL=${SENDER_EMAIL}
+      - SENDER_PASSWORD=${SENDER_PASSWORD}
+    restart: unless-stopped
