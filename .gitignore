@@ -1,0 +1,9 @@
+/reports
+/data
+/logs
+/venv
+
+.secret_key
+.enc
+.pyc
+.env

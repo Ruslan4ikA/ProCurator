@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Настройки | AI-ассистент куратора</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
+  --border: #30363d; --accent: #2563eb; --accent-light: #3b82f6;
+  --green: #22c55e; --red: #ef4444; --amber: #f59e0b;
+  --text: #e6edf3; --text-muted: #8b949e; --text-dim: #484f58;
+  --radius: 12px; --radius-sm: 8px; --font: 'Geologica', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+.header {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 24px; background: var(--surface);
+  border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10;
+}
+.logo { width: 36px; height: 36px; background: var(--accent); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.header-info h1 { font-size: 15px; font-weight: 600; }
+.header-info p { font-size: 12px; color: var(--text-muted); }
+.header-nav { margin-left: auto; display: flex; gap: 4px; }
+.nav-btn { padding: 7px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-family: var(--font); font-size: 13px; cursor: pointer; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: all 0.15s; }
+.nav-btn:hover, .nav-btn.active { background: var(--surface2); color: var(--text); border-color: var(--accent); }
+
+.container { max-width: 800px; margin: 0 auto; padding: 32px 24px; display: flex; flex-direction: column; gap: 24px; }
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.section-icon { font-size: 20px; }
+.section-title { font-size: 15px; font-weight: 600; }
+.section-desc { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+
+.section-body { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+label { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+
+input[type=text], input[type=password], input[type=number], input[type=email], input[type=time], select, textarea {
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+input::placeholder { color: var(--text-dim); }
+select option { background: var(--surface2); }
+
+/* Toggle send method */
+.method-toggle { display: flex; gap: 8px; }
+.method-option {
+  flex: 1; padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  background: var(--bg);
+}
+.method-option.selected { border-color: var(--accent); background: rgba(37,99,235,0.08); }
+.method-option:hover { border-color: var(--accent-light); }
+.method-option input[type=radio] { display: none; }
+.method-icon { font-size: 24px; display: block; margin-bottom: 4px; }
+.method-name { font-size: 13px; font-weight: 600; }
+.method-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* Collapsible section */
+.collapsible { display: none; }
+.collapsible.show { display: flex; flex-direction: column; gap: 16px; }
+
+/* Checkbox */
+.toggle-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0;
+}
+.toggle-label { font-size: 14px; }
+.toggle-label small { display: block; font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.toggle {
+  position: relative; width: 44px; height: 24px;
+  background: var(--border); border-radius: 12px;
+  cursor: pointer; transition: background 0.2s;
+  flex-shrink: 0;
+}
+.toggle.on { background: var(--accent); }
+.toggle::after {
+  content: ''; position: absolute;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: white; top: 2px; left: 2px;
+  transition: transform 0.2s;
+}
+.toggle.on::after { transform: translateX(20px); }
+
+/* Buttons */
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.btn {
+  padding: 10px 18px; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 13px; font-weight: 600;
+  cursor: pointer; border: none; transition: all 0.15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-primary { background: var(--accent); color: white; }
+.btn-primary:hover { background: var(--accent-light); }
+.btn-secondary { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--accent); }
+.btn-danger { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid var(--red); }
+.btn-success { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid var(--green); }
+
+.test-result {
+  padding: 8px 12px; border-radius: var(--radius-sm);
+  font-size: 12px; display: none;
+}
+.test-result.ok { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid var(--green); display: block; }
+.test-result.err { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid var(--red); display: block; }
+
+.save-bar {
+  position: sticky; bottom: 0;
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding: 16px 24px; display: flex; gap: 12px; align-items: center;
+}
+.save-msg { font-size: 13px; color: var(--text-muted); }
+.save-msg.ok { color: var(--green); }
+.save-msg.err { color: var(--red); }
+
+.day-select { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.day-btn {
+  padding: 6px 4px; text-align: center; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); cursor: pointer; font-size: 11px;
+  background: var(--bg); color: var(--text-muted);
+  transition: all 0.15s; font-family: var(--font);
+}
+.day-btn.selected { border-color: var(--accent); background: rgba(37,99,235,0.1); color: var(--text); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">🎓</div>
+  <div class="header-info">
+    <h1>AI-ассистент куратора</h1>
+    <p>Настройки системы</p>
+  </div>
+  <nav class="header-nav">
+    <a href="/" class="nav-btn">💬 Чат</a>
+    <a href="/settings" class="nav-btn active">⚙️ Настройки</a>
+    <a href="/logs" class="nav-btn">📋 Логи</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <!-- ПОРТАЛ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <div>
+        <div class="section-title">Образовательный портал</div>
+        <div class="section-desc">Данные для входа в кабинет куратора МГТУ</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label>Адрес главной страницы</label>
+        <input type="text" id="portal_url" placeholder="https://newlms.magtu.ru/">
+      </div>
+      <div class="field">
+        <label>Адрес страницы кабинета куратора (с оценками)</label>
+        <input type="text" id="portal_grades_url" placeholder="https://newlms.magtu.ru/report/...">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Логин</label>
+          <input type="text" id="portal_login" placeholder="e.karmanova">
+        </div>
+        <div class="field">
+          <label>Пароль</label>
+          <input type="password" id="portal_password" placeholder="●●●●●●●●">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>ID группы (gradebook из URL кабинета куратора)</label>
+          <input type="text" id="group_id" placeholder="4618">
+        </div>
+        <div class="field">
+          <label>Режим браузера</label>
+          <select id="headless_mode">
+            <option value="true">Headless — без окна (рекомендуется)</option>
+            <option value="false">Видимый — с окном браузера</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ТЕСТОВЫЙ РЕЖИМ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🧪</span>
+      <div>
+        <div class="section-title">Тестовый режим</div>
+        <div class="section-desc">Парсинг локального HTML-файла вместо захода на портал</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="toggle-row">
+        <div class="toggle-label">
+          Включить тестовый режим
+          <small>Selenium не запускается. HTML читается с диска для отладки парсинга и отчётов.</small>
+        </div>
+        <div class="toggle" id="testModeToggle" onclick="toggleTestMode()"></div>
+        <input type="hidden" id="test_mode" value="false">
+      </div>
+      <div id="test-options" style="display:none; flex-direction:column; gap:12px;">
+        <div class="field">
+          <label>Путь к тестовому HTML-файлу</label>
+          <input type="text" id="test_html_path" placeholder="D:\путь\к\portal_curator.html">
+          <small style="font-size:11px;color:var(--text-dim);margin-top:4px;">
+            Например: D:\PARIS\unik\7sem\ВКР\scrap_portal\scrap_portal\portal_curator.html
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- РАССЫЛКА -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📤</span>
+      <div>
+        <div class="section-title">Способ рассылки отчётов</div>
+        <div class="section-desc">Выберите канал доставки</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="method-toggle">
+        <label class="method-option" id="opt-max">
+          <input type="radio" name="send_method" value="max" onchange="toggleMethod('max')">
+          <span class="method-icon">💬</span>
+          <div class="method-name">MAX Мессенджер</div>
+          <div class="method-desc">Через бот-интеграцию</div>
+        </label>
+        <label class="method-option" id="opt-email">
+          <input type="radio" name="send_method" value="email" onchange="toggleMethod('email')">
+          <span class="method-icon">✉️</span>
+          <div class="method-name">Email (SMTP)</div>
+          <div class="method-desc">По электронной почте</div>
+        </label>
+      </div>
+
+      <!-- MAX -->
+      <div class="collapsible" id="block-max">
+        <div class="field">
+          <label>Токен MAX-бота</label>
+          <input type="password" id="max_token" placeholder="Получите на platform.max.ru">
+        </div>
+        <div class="field">
+          <label>User ID получателя в MAX</label>
+          <input type="text" id="max_user_id" placeholder="123456789">
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="testMax()">🔌 Проверить подключение</button>
+        </div>
+        <div class="test-result" id="max-test-result"></div>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="collapsible" id="block-email">
+        <div class="field-row">
+          <div class="field">
+            <label>SMTP-сервер</label>
+            <input type="text" id="smtp_host" placeholder="smtp.gmail.com">
+          </div>
+          <div class="field">
+            <label>Порт</label>
+            <input type="number" id="smtp_port" placeholder="587">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Логин отправителя</label>
+            <input type="email" id="smtp_login" placeholder="curator@mgtu.ru">
+          </div>
+          <div class="field">
+            <label>Пароль приложения</label>
+            <input type="password" id="smtp_password" placeholder="●●●●●●●●">
+          </div>
+        </div>
+        <div class="field">
+          <label>Email отправителя (From)</label>
+          <input type="email" id="smtp_from" placeholder="curator@mgtu.ru">
+        </div>
+        <div class="field">
+          <label>Получатели (через запятую)</label>
+          <input type="text" id="email_recipients" placeholder="parent1@mail.ru, parent2@yandex.ru">
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="testEmail()">🔌 Проверить SMTP</button>
+        </div>
+        <div class="test-result" id="email-test-result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <div>
+        <div class="section-title">AI-модуль (Ollama)</div>
+        <div class="section-desc">Локальная языковая модель для распознавания запросов</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field-row">
+        <div class="field">
+          <label>URL Ollama API</label>
+          <input type="text" id="ollama_url" placeholder="http://localhost:11434/api/chat">
+        </div>
+        <div class="field">
+          <label>Модель</label>
+          <input type="text" id="ollama_model" placeholder="llama3">
+        </div>
+      </div>
+      <div class="field">
+        <label style="color:var(--text-muted); font-size:12px;">
+          💡 Если Ollama недоступна, ассистент автоматически использует встроенный парсер на правилах.
+          Установите Ollama: <a href="https://ollama.ai" target="_blank" style="color:var(--accent)">ollama.ai</a>,
+          затем выполните <code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:11px;">ollama pull llama3</code>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- РАСПИСАНИЕ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🕐</span>
+      <div>
+        <div class="section-title">Автоматическое расписание</div>
+        <div class="section-desc">Еженедельная авторассылка отчёта по должникам</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="toggle-row">
+        <div class="toggle-label">
+          Включить автоматическую рассылку
+          <small>Каждую неделю в указанное время</small>
+        </div>
+        <div class="toggle" id="schedToggle" onclick="toggleSched()"></div>
+        <input type="hidden" id="schedule_enabled" value="false">
+      </div>
+      <div id="sched-options" style="display:none; flex-direction:column; gap:12px;">
+        <div class="field">
+          <label>День недели</label>
+          <div class="day-select" id="daySelect">
+            <button class="day-btn" data-val="monday" onclick="selectDay(this)">Пн</button>
+            <button class="day-btn" data-val="tuesday" onclick="selectDay(this)">Вт</button>
+            <button class="day-btn" data-val="wednesday" onclick="selectDay(this)">Ср</button>
+            <button class="day-btn" data-val="thursday" onclick="selectDay(this)">Чт</button>
+            <button class="day-btn" data-val="friday" onclick="selectDay(this)">Пт</button>
+            <button class="day-btn" data-val="saturday" onclick="selectDay(this)">Сб</button>
+            <button class="day-btn" data-val="sunday" onclick="selectDay(this)">Вс</button>
+          </div>
+          <input type="hidden" id="schedule_day" value="monday">
+        </div>
+        <div class="field" style="max-width:160px;">
+          <label>Время отправки</label>
+          <input type="time" id="schedule_time" value="08:00">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ОТЧЁТЫ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📁</span>
+      <div>
+        <div class="section-title">Папка сохранения отчётов</div>
+        <div class="section-desc">Локальная директория для хранения xlsx и pdf файлов</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label>Путь к папке</label>
+        <input type="text" id="report_dir" placeholder="reports">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SAVE BAR -->
+<div class="save-bar">
+  <button class="btn btn-primary" onclick="saveSettings()">💾 Сохранить настройки</button>
+  <button class="btn btn-secondary" onclick="loadSettings()">↺ Сбросить изменения</button>
+  <span class="save-msg" id="saveMsg"></span>
+</div>
+
+<script>
+let currentMethod = 'max';
+
+function toggleMethod(method) {
+  currentMethod = method;
+  document.getElementById('opt-max').classList.toggle('selected', method === 'max');
+  document.getElementById('opt-email').classList.toggle('selected', method === 'email');
+  document.getElementById('block-max').classList.toggle('show', method === 'max');
+  document.getElementById('block-email').classList.toggle('show', method === 'email');
+}
+
+function toggleTestMode() {
+  const hidden = document.getElementById('test_mode');
+  const toggle = document.getElementById('testModeToggle');
+  const opts = document.getElementById('test-options');
+  const isOn = hidden.value === 'true';
+  hidden.value = (!isOn).toString();
+  toggle.classList.toggle('on', !isOn);
+  opts.style.display = !isOn ? 'flex' : 'none';
+}
+
+function toggleSched() {
+  const hidden = document.getElementById('schedule_enabled');
+  const toggle = document.getElementById('schedToggle');
+  const opts = document.getElementById('sched-options');
+  const isOn = hidden.value === 'true';
+  hidden.value = (!isOn).toString();
+  toggle.classList.toggle('on', !isOn);
+  opts.style.display = !isOn ? 'flex' : 'none';
+}
+
+function selectDay(btn) {
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('schedule_day').value = btn.dataset.val;
+}
+
+async function loadSettings() {
+  try {
+    const r = await fetch('/api/settings');
+    const d = await r.json();
+
+    // Заполняем поля
+    const fields = [
+      'portal_url','portal_grades_url','portal_login','portal_password','group_id',
+      'max_token','max_user_id',
+      'smtp_host','smtp_port','smtp_login','smtp_password','smtp_from','email_recipients',
+      'ollama_url','ollama_model','report_dir','schedule_time'
+    ];
+    fields.forEach(f => {
+      const el = document.getElementById(f);
+      if (el) el.value = d[f] ?? '';
+    });
+
+    // Метод рассылки
+    const method = d.send_method || 'max';
+    document.querySelector(`input[value="${method}"]`).checked = true;
+    toggleMethod(method);
+
+    // Расписание
+    const schedOn = d.schedule_enabled === true || d.schedule_enabled === 'true';
+    document.getElementById('schedule_enabled').value = schedOn.toString();
+    document.getElementById('schedToggle').classList.toggle('on', schedOn);
+    document.getElementById('sched-options').style.display = schedOn ? 'flex' : 'none';
+
+    // Тестовый режим
+    const testOn = d.test_mode === true || d.test_mode === 'true';
+    document.getElementById('test_mode').value = testOn.toString();
+    document.getElementById('testModeToggle').classList.toggle('on', testOn);
+    document.getElementById('test-options').style.display = testOn ? 'flex' : 'none';
+    document.getElementById('test_html_path').value = d.test_html_path || '';
+
+    // День недели
+    const day = d.schedule_day || 'monday';
+    document.getElementById('schedule_day').value = day;
+    document.querySelectorAll('.day-btn').forEach(b => {
+      b.classList.toggle('selected', b.dataset.val === day);
+    });
+
+  } catch(e) {
+    showMsg('Ошибка загрузки настроек', false);
+  }
+}
+
+async function saveSettings() {
+  const data = {
+    portal_url: v('portal_url'),
+    portal_grades_url: v('portal_grades_url'),
+    portal_login: v('portal_login'),
+    portal_password: v('portal_password'),
+    group_id: v('group_id'),
+    headless_mode: v('headless_mode') !== 'false',
+    send_method: currentMethod,
+    max_token: v('max_token'),
+    max_user_id: v('max_user_id'),
+    smtp_host: v('smtp_host'),
+    smtp_port: parseInt(v('smtp_port')) || 587,
+    smtp_login: v('smtp_login'),
+    smtp_password: v('smtp_password'),
+    smtp_from: v('smtp_from'),
+    email_recipients: v('email_recipients'),
+    ollama_url: v('ollama_url'),
+    ollama_model: v('ollama_model'),
+    report_dir: v('report_dir') || 'reports',
+    schedule_enabled: document.getElementById('schedule_enabled').value === 'true',
+    schedule_day: v('schedule_day'),
+    schedule_time: v('schedule_time'),
+    test_mode: document.getElementById('test_mode').value === 'true',
+    test_html_path: v('test_html_path'),
+  };
+
+  try {
+    const r = await fetch('/api/settings', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    const d = await r.json();
+    showMsg(d.success ? '✅ Настройки сохранены' : '❌ ' + d.message, d.success);
+  } catch(e) {
+    showMsg('Ошибка сохранения', false);
+  }
+}
+
+async function testMax() {
+  const result = document.getElementById('max-test-result');
+  result.className = 'test-result';
+  result.textContent = '⏳ Проверка...';
+  result.style.display = 'block';
+
+  try {
+    const r = await fetch('/api/test/max', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({max_token: v('max_token'), max_user_id: v('max_user_id')})
+    });
+    const d = await r.json();
+    result.className = 'test-result ' + (d.success ? 'ok' : 'err');
+    result.textContent = d.message;
+  } catch(e) {
+    result.className = 'test-result err';
+    result.textContent = 'Ошибка запроса';
+  }
+}
+
+async function testEmail() {
+  const result = document.getElementById('email-test-result');
+  result.className = 'test-result';
+  result.textContent = '⏳ Проверка...';
+  result.style.display = 'block';
+
+  try {
+    const r = await fetch('/api/test/email', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        smtp_host: v('smtp_host'), smtp_port: v('smtp_port'),
+        smtp_login: v('smtp_login'), smtp_password: v('smtp_password')
+      })
+    });
+    const d = await r.json();
+    result.className = 'test-result ' + (d.success ? 'ok' : 'err');
+    result.textContent = d.message;
+  } catch(e) {
+    result.className = 'test-result err';
+    result.textContent = 'Ошибка запроса';
+  }
+}
+
+function v(id) {
+  const el = document.getElementById(id);
+  return el ? el.value : '';
+}
+
+function showMsg(msg, ok) {
+  const el = document.getElementById('saveMsg');
+  el.textContent = msg;
+  el.className = 'save-msg ' + (ok ? 'ok' : 'err');
+  setTimeout(() => { el.textContent = ''; el.className = 'save-msg'; }, 4000);
+}
+
+// Инициализация
+loadSettings();
+</script>
+</body>
+</html>

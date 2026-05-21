@@ -1,0 +1,498 @@
+2026-04-16 08:48:03 [INFO] ==================================================
+2026-04-16 08:48:03 [INFO] Запуск AI-ассистента куратора
+2026-04-16 08:48:03 [INFO] ==================================================
+2026-04-16 08:48:03 [INFO] Планировщик запущен
+2026-04-16 09:04:08 [INFO] ==================================================
+2026-04-16 09:04:08 [INFO] Запуск AI-ассистента куратора
+2026-04-16 09:04:08 [INFO] ==================================================
+2026-04-16 09:04:08 [INFO] Планировщик запущен
+2026-04-16 09:05:31 [INFO] Планировщик остановлен
+2026-04-16 09:05:31 [INFO] Настройки сохранены
+2026-04-16 09:06:07 [INFO] Чат: получен запрос: 'отчёт по должникам за последний семестр'
+2026-04-16 09:06:07 [INFO] AI: обработка запроса: 'отчёт по должникам за последний семестр'
+2026-04-16 09:06:11 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:06:11 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:06:14 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:06:37 [ERROR] Ошибка при сборе данных с портала: Message: unknown error: cannot find Chrome binary
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x003DA813+48355]
+	(No symbol) [0x0036C4B1]
+	(No symbol) [0x00275358]
+	(No symbol) [0x00291A9E]
+	(No symbol) [0x00290579]
+	(No symbol) [0x002C0C55]
+	(No symbol) [0x002C093C]
+	(No symbol) [0x002BA536]
+	(No symbol) [0x002982DC]
+	(No symbol) [0x002993DD]
+	GetHandleVerifier [0x0063AABD+2539405]
+	GetHandleVerifier [0x0067A78F+2800735]
+	GetHandleVerifier [0x0067456C+2775612]
+	GetHandleVerifier [0x004651E0+616112]
+	(No symbol) [0x00375F8C]
+	(No symbol) [0x00372328]
+	(No symbol) [0x0037240B]
+	(No symbol) [0x00364FF7]
+	BaseThreadInitThunk [0x75D85D49+25]
+	RtlInitializeExceptionChain [0x7793D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x7793D7C1+561]
+
+2026-04-16 09:08:47 [INFO] Чат: получен запрос: 'отчёт по должникам за последний семестр'
+2026-04-16 09:08:47 [INFO] AI: обработка запроса: 'отчёт по должникам за последний семестр'
+2026-04-16 09:08:51 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:08:51 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:08:51 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:09:14 [ERROR] Ошибка при сборе данных с портала: Message: unknown error: cannot find Chrome binary
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x0035A813+48355]
+	(No symbol) [0x002EC4B1]
+	(No symbol) [0x001F5358]
+	(No symbol) [0x00211A9E]
+	(No symbol) [0x00210579]
+	(No symbol) [0x00240C55]
+	(No symbol) [0x0024093C]
+	(No symbol) [0x0023A536]
+	(No symbol) [0x002182DC]
+	(No symbol) [0x002193DD]
+	GetHandleVerifier [0x005BAABD+2539405]
+	GetHandleVerifier [0x005FA78F+2800735]
+	GetHandleVerifier [0x005F456C+2775612]
+	GetHandleVerifier [0x003E51E0+616112]
+	(No symbol) [0x002F5F8C]
+	(No symbol) [0x002F2328]
+	(No symbol) [0x002F240B]
+	(No symbol) [0x002E4FF7]
+	BaseThreadInitThunk [0x75D85D49+25]
+	RtlInitializeExceptionChain [0x7793D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x7793D7C1+561]
+
+2026-04-16 09:12:29 [INFO] Чат: получен запрос: 'отчёт по должникам за 3 семестр'
+2026-04-16 09:12:29 [INFO] AI: обработка запроса: 'отчёт по должникам за 3 семестр'
+2026-04-16 09:12:33 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:12:33 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:12:33 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:12:58 [ERROR] Ошибка при сборе данных с портала: Message: unknown error: cannot find Chrome binary
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00CAA813+48355]
+	(No symbol) [0x00C3C4B1]
+	(No symbol) [0x00B45358]
+	(No symbol) [0x00B61A9E]
+	(No symbol) [0x00B60579]
+	(No symbol) [0x00B90C55]
+	(No symbol) [0x00B9093C]
+	(No symbol) [0x00B8A536]
+	(No symbol) [0x00B682DC]
+	(No symbol) [0x00B693DD]
+	GetHandleVerifier [0x00F0AABD+2539405]
+	GetHandleVerifier [0x00F4A78F+2800735]
+	GetHandleVerifier [0x00F4456C+2775612]
+	GetHandleVerifier [0x00D351E0+616112]
+	(No symbol) [0x00C45F8C]
+	(No symbol) [0x00C42328]
+	(No symbol) [0x00C4240B]
+	(No symbol) [0x00C34FF7]
+	BaseThreadInitThunk [0x75D85D49+25]
+	RtlInitializeExceptionChain [0x7793D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x7793D7C1+561]
+
+2026-04-16 09:13:51 [INFO] ==================================================
+2026-04-16 09:13:51 [INFO] Запуск AI-ассистента куратора
+2026-04-16 09:13:51 [INFO] ==================================================
+2026-04-16 09:13:51 [INFO] Планировщик запущен
+2026-04-16 09:14:01 [INFO] Чат: получен запрос: 'отчёт по должникам за последний семестр'
+2026-04-16 09:14:01 [INFO] AI: обработка запроса: 'отчёт по должникам за последний семестр'
+2026-04-16 09:14:05 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:14:05 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:14:07 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:15:04 [ERROR] Ошибка при сборе данных с портала: Message: unknown error: cannot find Chrome binary
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x0093A813+48355]
+	(No symbol) [0x008CC4B1]
+	(No symbol) [0x007D5358]
+	(No symbol) [0x007F1A9E]
+	(No symbol) [0x007F0579]
+	(No symbol) [0x00820C55]
+	(No symbol) [0x0082093C]
+	(No symbol) [0x0081A536]
+	(No symbol) [0x007F82DC]
+	(No symbol) [0x007F93DD]
+	GetHandleVerifier [0x00B9AABD+2539405]
+	GetHandleVerifier [0x00BDA78F+2800735]
+	GetHandleVerifier [0x00BD456C+2775612]
+	GetHandleVerifier [0x009C51E0+616112]
+	(No symbol) [0x008D5F8C]
+	(No symbol) [0x008D2328]
+	(No symbol) [0x008D240B]
+	(No symbol) [0x008C4FF7]
+	BaseThreadInitThunk [0x75D85D49+25]
+	RtlInitializeExceptionChain [0x7793D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x7793D7C1+561]
+
+2026-04-16 09:27:24 [INFO] ==================================================
+2026-04-16 09:27:24 [INFO] Запуск AI-ассистента куратора
+2026-04-16 09:27:24 [INFO] ==================================================
+2026-04-16 09:27:24 [INFO] Планировщик запущен
+2026-04-16 09:27:43 [INFO] Чат: получен запрос: 'статистика по группе'
+2026-04-16 09:27:43 [INFO] AI: обработка запроса: 'статистика по группе'
+2026-04-16 09:27:47 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:28:05 [INFO] Чат: получен запрос: 'отчёт по должникам за последний семестр'
+2026-04-16 09:28:05 [INFO] AI: обработка запроса: 'отчёт по должникам за последний семестр'
+2026-04-16 09:28:09 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:28:09 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:28:11 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:28:11 [DEBUG] Chrome найден: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:28:11 [INFO] Используется браузер: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:28:15 [WARNING] webdriver-manager не сработал (Could not reach host. Are you offline?), пробуем системный chromedriver
+2026-04-16 09:28:21 [ERROR] Ошибка при сборе данных с портала: Message: session not created: This version of ChromeDriver only supports Chrome version 146
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6860210a5+14cc5]
+	chromedriver!GetHandleVerifier [0x7ff686021110+14d30]
+	chromedriver!(No symbol) [0x7ff685d8db6d]
+	chromedriver!(No symbol) [0x7ff685dd608d]
+	chromedriver!(No symbol) [0x7ff685dd4de5]
+	chromedriver!(No symbol) [0x7ff685dcf321]
+	chromedriver!(No symbol) [0x7ff685dc9c29]
+	chromedriver!(No symbol) [0x7ff685e1e021]
+	chromedriver!(No symbol) [0x7ff685e1d886]
+	chromedriver!(No symbol) [0x7ff685dd96e8]
+	chromedriver!(No symbol) [0x7ff685dda5d3]
+	chromedriver!GetHandleVerifier [0x7ff686325ddd+3199fd]
+	chromedriver!GetHandleVerifier [0x7ff6863204bd+3140dd]
+	chromedriver!GetHandleVerifier [0x7ff6863429ba+3365da]
+	chromedriver!GetHandleVerifier [0x7ff68603ca45+30665]
+	chromedriver!GetHandleVerifier [0x7ff686045b9c+397bc]
+	chromedriver!GetHandleVerifier [0x7ff68602a4c4+1e0e4]
+	chromedriver!GetHandleVerifier [0x7ff68602a676+1e296]
+	chromedriver!GetHandleVerifier [0x7ff68600ef87+2ba7]
+	KERNEL32!BaseThreadInitThunk [0x7ffd2fece8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffd3184c3fc+2c]
+
+2026-04-16 09:29:45 [INFO] ==================================================
+2026-04-16 09:29:45 [INFO] Запуск AI-ассистента куратора
+2026-04-16 09:29:45 [INFO] ==================================================
+2026-04-16 09:29:45 [INFO] Планировщик запущен
+2026-04-16 09:30:01 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-04-16 09:30:01 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-04-16 09:30:05 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:30:05 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:30:06 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:30:06 [DEBUG] Chrome найден: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:30:06 [INFO] Используется браузер: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:32:01 [ERROR] Ошибка при сборе данных с портала: Message: session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00E0A813+48355]
+	(No symbol) [0x00D9C4B1]
+	(No symbol) [0x00CA5358]
+	(No symbol) [0x00CC61AC]
+	(No symbol) [0x00CC1EF3]
+	(No symbol) [0x00CC0579]
+	(No symbol) [0x00CF0C55]
+	(No symbol) [0x00CF093C]
+	(No symbol) [0x00CEA536]
+	(No symbol) [0x00CC82DC]
+	(No symbol) [0x00CC93DD]
+	GetHandleVerifier [0x0106AABD+2539405]
+	GetHandleVerifier [0x010AA78F+2800735]
+	GetHandleVerifier [0x010A456C+2775612]
+	GetHandleVerifier [0x00E951E0+616112]
+	(No symbol) [0x00DA5F8C]
+	(No symbol) [0x00DA2328]
+	(No symbol) [0x00DA240B]
+	(No symbol) [0x00D94FF7]
+	BaseThreadInitThunk [0x75D85D49+25]
+	RtlInitializeExceptionChain [0x7793D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x7793D7C1+561]
+
+2026-04-16 09:32:01 [ERROR] Не удалось собрать данные: Message: session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00E0A813+48355]
+	(No symbol) [0x00D9C4B1]
+	(No symbol) [0x00CA5358]
+	(No symbol) [0x00CC61AC]
+	(No symbol) [0x00CC1EF3]
+	(No symbol) [0x00CC0579]
+	(No symbol) [0x00CF0C55]
+	(No symbol) [0x00CF093C]
+	(No symbol) [0x00CEA536]
+	(No symbol) [0x00CC82DC]
+	(No symbol) [0x00CC93DD]
+	GetHandleVerifier [0x0106AABD+2539405]
+	GetHandleVerifier [0x010AA78F+2800735]
+	GetHandleVerifier [0x010A456C+2775612]
+	GetHandleVerifier [0x00E951E0+616112]
+	(No symbol) [0x00DA5F8C]
+	(No symbol) [0x00DA2328]
+	(No symbol) [0x00DA240B]
+	(No symbol) [0x00D94FF7]
+	BaseThreadInitThunk [0x75D85D49+25]
+	RtlInitializeExceptionChain [0x7793D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x7793D7C1+561]
+
+2026-04-16 09:33:41 [INFO] ==================================================
+2026-04-16 09:33:41 [INFO] Запуск AI-ассистента куратора
+2026-04-16 09:33:41 [INFO] ==================================================
+2026-04-16 09:33:41 [INFO] Планировщик запущен
+2026-04-16 09:33:46 [INFO] Чат: получен запрос: 'отчёт по должникам за последний семестр'
+2026-04-16 09:33:46 [INFO] AI: обработка запроса: 'отчёт по должникам за последний семестр'
+2026-04-16 09:33:50 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:33:50 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:33:52 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:33:52 [DEBUG] Chrome найден: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:33:52 [INFO] Используется браузер: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:35:02 [ERROR] Ошибка при сборе данных с портала: Message: session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00E6A813+48355]
+	(No symbol) [0x00DFC4B1]
+	(No symbol) [0x00D05358]
+	(No symbol) [0x00D261AC]
+	(No symbol) [0x00D21EF3]
+	(No symbol) [0x00D20579]
+	(No symbol) [0x00D50C55]
+	(No symbol) [0x00D5093C]
+	(No symbol) [0x00D4A536]
+	(No symbol) [0x00D282DC]
+	(No symbol) [0x00D293DD]
+	GetHandleVerifier [0x010CAABD+2539405]
+	GetHandleVerifier [0x0110A78F+2800735]
+	GetHandleVerifier [0x0110456C+2775612]
+	GetHandleVerifier [0x00EF51E0+616112]
+	(No symbol) [0x00E05F8C]
+	(No symbol) [0x00E02328]
+	(No symbol) [0x00E0240B]
+	(No symbol) [0x00DF4FF7]
+	BaseThreadInitThunk [0x75D85D49+25]
+	RtlInitializeExceptionChain [0x7793D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x7793D7C1+561]
+
+2026-04-16 09:35:02 [ERROR] Не удалось собрать данные: Message: session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00E6A813+48355]
+	(No symbol) [0x00DFC4B1]
+	(No symbol) [0x00D05358]
+	(No symbol) [0x00D261AC]
+	(No symbol) [0x00D21EF3]
+	(No symbol) [0x00D20579]
+	(No symbol) [0x00D50C55]
+	(No symbol) [0x00D5093C]
+	(No symbol) [0x00D4A536]
+	(No symbol) [0x00D282DC]
+	(No symbol) [0x00D293DD]
+	GetHandleVerifier [0x010CAABD+2539405]
+	GetHandleVerifier [0x0110A78F+2800735]
+	GetHandleVerifier [0x0110456C+2775612]
+	GetHandleVerifier [0x00EF51E0+616112]
+	(No symbol) [0x00E05F8C]
+	(No symbol) [0x00E02328]
+	(No symbol) [0x00E0240B]
+	(No symbol) [0x00DF4FF7]
+	BaseThreadInitThunk [0x75D85D49+25]
+	RtlInitializeExceptionChain [0x7793D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x7793D7C1+561]
+
+2026-04-16 09:39:43 [INFO] ==================================================
+2026-04-16 09:39:43 [INFO] Запуск AI-ассистента куратора
+2026-04-16 09:39:43 [INFO] ==================================================
+2026-04-16 09:39:43 [INFO] Планировщик запущен
+2026-04-16 09:39:52 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-04-16 09:39:52 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-04-16 09:39:56 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:39:56 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:39:58 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:39:58 [DEBUG] Chrome найден: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:39:58 [INFO] Используется браузер: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:40:03 [ERROR] Ошибка при сборе данных с портала: Message: session not created: This version of ChromeDriver only supports Chrome version 146
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6860210a5+14cc5]
+	chromedriver!GetHandleVerifier [0x7ff686021110+14d30]
+	chromedriver!(No symbol) [0x7ff685d8db6d]
+	chromedriver!(No symbol) [0x7ff685dd608d]
+	chromedriver!(No symbol) [0x7ff685dd4de5]
+	chromedriver!(No symbol) [0x7ff685dcf321]
+	chromedriver!(No symbol) [0x7ff685dc9c29]
+	chromedriver!(No symbol) [0x7ff685e1e021]
+	chromedriver!(No symbol) [0x7ff685e1d886]
+	chromedriver!(No symbol) [0x7ff685dd96e8]
+	chromedriver!(No symbol) [0x7ff685dda5d3]
+	chromedriver!GetHandleVerifier [0x7ff686325ddd+3199fd]
+	chromedriver!GetHandleVerifier [0x7ff6863204bd+3140dd]
+	chromedriver!GetHandleVerifier [0x7ff6863429ba+3365da]
+	chromedriver!GetHandleVerifier [0x7ff68603ca45+30665]
+	chromedriver!GetHandleVerifier [0x7ff686045b9c+397bc]
+	chromedriver!GetHandleVerifier [0x7ff68602a4c4+1e0e4]
+	chromedriver!GetHandleVerifier [0x7ff68602a676+1e296]
+	chromedriver!GetHandleVerifier [0x7ff68600ef87+2ba7]
+	KERNEL32!BaseThreadInitThunk [0x7ffd2fece8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffd3184c3fc+2c]
+
+2026-04-16 09:40:03 [ERROR] Не удалось собрать данные: Message: session not created: This version of ChromeDriver only supports Chrome version 146
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6860210a5+14cc5]
+	chromedriver!GetHandleVerifier [0x7ff686021110+14d30]
+	chromedriver!(No symbol) [0x7ff685d8db6d]
+	chromedriver!(No symbol) [0x7ff685dd608d]
+	chromedriver!(No symbol) [0x7ff685dd4de5]
+	chromedriver!(No symbol) [0x7ff685dcf321]
+	chromedriver!(No symbol) [0x7ff685dc9c29]
+	chromedriver!(No symbol) [0x7ff685e1e021]
+	chromedriver!(No symbol) [0x7ff685e1d886]
+	chromedriver!(No symbol) [0x7ff685dd96e8]
+	chromedriver!(No symbol) [0x7ff685dda5d3]
+	chromedriver!GetHandleVerifier [0x7ff686325ddd+3199fd]
+	chromedriver!GetHandleVerifier [0x7ff6863204bd+3140dd]
+	chromedriver!GetHandleVerifier [0x7ff6863429ba+3365da]
+	chromedriver!GetHandleVerifier [0x7ff68603ca45+30665]
+	chromedriver!GetHandleVerifier [0x7ff686045b9c+397bc]
+	chromedriver!GetHandleVerifier [0x7ff68602a4c4+1e0e4]
+	chromedriver!GetHandleVerifier [0x7ff68602a676+1e296]
+	chromedriver!GetHandleVerifier [0x7ff68600ef87+2ba7]
+	KERNEL32!BaseThreadInitThunk [0x7ffd2fece8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffd3184c3fc+2c]
+
+2026-04-16 09:43:04 [INFO] Чат: получен запрос: 'отчёт по должникам за 3 семестр'
+2026-04-16 09:43:04 [INFO] AI: обработка запроса: 'отчёт по должникам за 3 семестр'
+2026-04-16 09:43:08 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:43:08 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:43:08 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:43:08 [DEBUG] Chrome найден: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:43:08 [INFO] Используется браузер: C:\Program Files\Yandex\YandexBrowser\Application\browser.exe
+2026-04-16 09:43:12 [ERROR] Ошибка при сборе данных с портала: Message: session not created: This version of ChromeDriver only supports Chrome version 146
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6860210a5+14cc5]
+	chromedriver!GetHandleVerifier [0x7ff686021110+14d30]
+	chromedriver!(No symbol) [0x7ff685d8db6d]
+	chromedriver!(No symbol) [0x7ff685dd608d]
+	chromedriver!(No symbol) [0x7ff685dd4de5]
+	chromedriver!(No symbol) [0x7ff685dcf321]
+	chromedriver!(No symbol) [0x7ff685dc9c29]
+	chromedriver!(No symbol) [0x7ff685e1e021]
+	chromedriver!(No symbol) [0x7ff685e1d886]
+	chromedriver!(No symbol) [0x7ff685dd96e8]
+	chromedriver!(No symbol) [0x7ff685dda5d3]
+	chromedriver!GetHandleVerifier [0x7ff686325ddd+3199fd]
+	chromedriver!GetHandleVerifier [0x7ff6863204bd+3140dd]
+	chromedriver!GetHandleVerifier [0x7ff6863429ba+3365da]
+	chromedriver!GetHandleVerifier [0x7ff68603ca45+30665]
+	chromedriver!GetHandleVerifier [0x7ff686045b9c+397bc]
+	chromedriver!GetHandleVerifier [0x7ff68602a4c4+1e0e4]
+	chromedriver!GetHandleVerifier [0x7ff68602a676+1e296]
+	chromedriver!GetHandleVerifier [0x7ff68600ef87+2ba7]
+	KERNEL32!BaseThreadInitThunk [0x7ffd2fece8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffd3184c3fc+2c]
+
+2026-04-16 09:43:12 [ERROR] Не удалось собрать данные: Message: session not created: This version of ChromeDriver only supports Chrome version 146
+Current browser version is 144.0.7559.869 with binary path C:\Program Files\Yandex\YandexBrowser\Application\browser.exe; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6860210a5+14cc5]
+	chromedriver!GetHandleVerifier [0x7ff686021110+14d30]
+	chromedriver!(No symbol) [0x7ff685d8db6d]
+	chromedriver!(No symbol) [0x7ff685dd608d]
+	chromedriver!(No symbol) [0x7ff685dd4de5]
+	chromedriver!(No symbol) [0x7ff685dcf321]
+	chromedriver!(No symbol) [0x7ff685dc9c29]
+	chromedriver!(No symbol) [0x7ff685e1e021]
+	chromedriver!(No symbol) [0x7ff685e1d886]
+	chromedriver!(No symbol) [0x7ff685dd96e8]
+	chromedriver!(No symbol) [0x7ff685dda5d3]
+	chromedriver!GetHandleVerifier [0x7ff686325ddd+3199fd]
+	chromedriver!GetHandleVerifier [0x7ff6863204bd+3140dd]
+	chromedriver!GetHandleVerifier [0x7ff6863429ba+3365da]
+	chromedriver!GetHandleVerifier [0x7ff68603ca45+30665]
+	chromedriver!GetHandleVerifier [0x7ff686045b9c+397bc]
+	chromedriver!GetHandleVerifier [0x7ff68602a4c4+1e0e4]
+	chromedriver!GetHandleVerifier [0x7ff68602a676+1e296]
+	chromedriver!GetHandleVerifier [0x7ff68600ef87+2ba7]
+	KERNEL32!BaseThreadInitThunk [0x7ffd2fece8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffd3184c3fc+2c]
+
+2026-04-16 09:44:12 [INFO] ==================================================
+2026-04-16 09:44:12 [INFO] Запуск AI-ассистента куратора
+2026-04-16 09:44:12 [INFO] ==================================================
+2026-04-16 09:44:12 [INFO] Планировщик запущен
+2026-04-16 09:44:17 [INFO] Чат: получен запрос: 'отчёт по должникам за 6 семестр'
+2026-04-16 09:44:17 [INFO] AI: обработка запроса: 'отчёт по должникам за 6 семестр'
+2026-04-16 09:44:21 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-04-16 09:44:21 [INFO] Сбор данных с образовательного портала...
+2026-04-16 09:44:22 [INFO] Запуск браузера для сбора данных с портала...
+2026-04-16 09:44:22 [WARNING] Chrome не найден по стандартным путям Windows
+2026-04-16 09:44:22 [DEBUG] Edge найден как замена Chrome: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+2026-04-16 09:44:22 [INFO] Используется браузер: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+2026-04-16 09:48:56 [ERROR] Ошибка при сборе данных с портала: Message: session not created
+from unknown error: unrecognized Chrome version: Edg/147.0.3912.60; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff70b3c0245+146d5]
+	chromedriver!GetHandleVerifier [0x7ff70b3c02b0+14740]
+	chromedriver!(No symbol) [0x7ff70b12d7cd]
+	chromedriver!(No symbol) [0x7ff70b0fdef4]
+	chromedriver!(No symbol) [0x7ff70b0fe583]
+	chromedriver!(No symbol) [0x7ff70b0fe3e1]
+	chromedriver!(No symbol) [0x7ff70b11d93b]
+	chromedriver!(No symbol) [0x7ff70b17448b]
+	chromedriver!(No symbol) [0x7ff70b16ea81]
+	chromedriver!(No symbol) [0x7ff70b169559]
+	chromedriver!(No symbol) [0x7ff70b1bdc21]
+	chromedriver!(No symbol) [0x7ff70b1bd486]
+	chromedriver!(No symbol) [0x7ff70b179018]
+	chromedriver!(No symbol) [0x7ff70b179f03]
+	chromedriver!GetHandleVerifier [0x7ff70b6d58f9+329d89]
+	chromedriver!GetHandleVerifier [0x7ff70b6cfe46+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff70b6f30b2+347542]
+	chromedriver!GetHandleVerifier [0x7ff70b3dd3d5+31865]
+	chromedriver!GetHandleVerifier [0x7ff70b3e600c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff70b3c9634+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff70b3c97e6+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff70b3ae2f7+2787]
+	KERNEL32!BaseThreadInitThunk [0x7ffd2fece8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffd3184c3fc+2c]
+
+2026-04-16 09:48:56 [ERROR] Не удалось собрать данные: Message: session not created
+from unknown error: unrecognized Chrome version: Edg/147.0.3912.60; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff70b3c0245+146d5]
+	chromedriver!GetHandleVerifier [0x7ff70b3c02b0+14740]
+	chromedriver!(No symbol) [0x7ff70b12d7cd]
+	chromedriver!(No symbol) [0x7ff70b0fdef4]
+	chromedriver!(No symbol) [0x7ff70b0fe583]
+	chromedriver!(No symbol) [0x7ff70b0fe3e1]
+	chromedriver!(No symbol) [0x7ff70b11d93b]
+	chromedriver!(No symbol) [0x7ff70b17448b]
+	chromedriver!(No symbol) [0x7ff70b16ea81]
+	chromedriver!(No symbol) [0x7ff70b169559]
+	chromedriver!(No symbol) [0x7ff70b1bdc21]
+	chromedriver!(No symbol) [0x7ff70b1bd486]
+	chromedriver!(No symbol) [0x7ff70b179018]
+	chromedriver!(No symbol) [0x7ff70b179f03]
+	chromedriver!GetHandleVerifier [0x7ff70b6d58f9+329d89]
+	chromedriver!GetHandleVerifier [0x7ff70b6cfe46+3242d6]
+	chromedriver!GetHandleVerifier [0x7ff70b6f30b2+347542]
+	chromedriver!GetHandleVerifier [0x7ff70b3dd3d5+31865]
+	chromedriver!GetHandleVerifier [0x7ff70b3e600c+3a49c]
+	chromedriver!GetHandleVerifier [0x7ff70b3c9634+1dac4]
+	chromedriver!GetHandleVerifier [0x7ff70b3c97e6+1dc76]
+	chromedriver!GetHandleVerifier [0x7ff70b3ae2f7+2787]
+	KERNEL32!BaseThreadInitThunk [0x7ffd2fece8d7+17]
+	ntdll!RtlUserThreadStart [0x7ffd3184c3fc+2c]
+
+2026-04-17 11:27:56 [INFO] ==================================================
+2026-04-17 11:27:56 [INFO] Запуск AI-ассистента куратора
+2026-04-17 11:27:56 [INFO] ==================================================
+2026-04-17 11:27:56 [INFO] Планировщик запущен
+2026-04-18 19:12:16 [INFO] ==================================================
+2026-04-18 19:12:16 [INFO] Запуск AI-ассистента куратора
+2026-04-18 19:12:16 [INFO] ==================================================
+2026-04-18 19:12:16 [INFO] Планировщик запущен

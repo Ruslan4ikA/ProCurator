@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Логи | AI-ассистент куратора</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
+  --border: #30363d; --accent: #2563eb;
+  --green: #22c55e; --red: #ef4444; --amber: #f59e0b; --blue: #60a5fa;
+  --text: #e6edf3; --text-muted: #8b949e; --text-dim: #484f58;
+  --radius: 12px; --radius-sm: 8px;
+  --font: 'Geologica', sans-serif; --mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
+
+.header { display: flex; align-items: center; gap: 16px; padding: 14px 24px; background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.logo { width: 36px; height: 36px; background: var(--accent); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.header-info h1 { font-size: 15px; font-weight: 600; }
+.header-info p { font-size: 12px; color: var(--text-muted); }
+.header-nav { margin-left: auto; display: flex; gap: 4px; }
+.nav-btn { padding: 7px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-family: var(--font); font-size: 13px; cursor: pointer; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: all 0.15s; }
+.nav-btn:hover, .nav-btn.active { background: var(--surface2); color: var(--text); border-color: var(--accent); }
+
+.toolbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 24px; background: var(--surface);
+  border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+
+.filter-btn {
+  padding: 6px 12px; border-radius: 20px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text-muted); font-family: var(--font); font-size: 12px;
+  cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--text); }
+.filter-btn.active { border-color: var(--accent); background: rgba(37,99,235,0.1); color: var(--text); }
+.filter-btn.info.active { border-color: var(--blue); background: rgba(96,165,250,0.08); }
+.filter-btn.warn.active { border-color: var(--amber); background: rgba(245,158,11,0.08); }
+.filter-btn.err.active { border-color: var(--red); background: rgba(239,68,68,0.08); }
+
+.toolbar-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+
+.btn-sm {
+  padding: 6px 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--surface2);
+  color: var(--text-muted); font-family: var(--font); font-size: 12px;
+  cursor: pointer; transition: all 0.15s;
+}
+.btn-sm:hover { border-color: var(--accent); color: var(--text); }
+
+.auto-refresh-label { font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 6px; }
+.auto-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+.log-container {
+  flex: 1; overflow-y: auto;
+  padding: 16px 24px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.log-container::-webkit-scrollbar { width: 6px; }
+.log-container::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.log-line {
+  display: flex; gap: 12px; padding: 2px 0;
+  border-bottom: 1px solid rgba(48,54,61,0.4);
+  animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.log-time { color: var(--text-dim); flex-shrink: 0; }
+.log-level {
+  flex-shrink: 0; width: 60px; text-align: center;
+  padding: 0 6px; border-radius: 3px; font-size: 10px; font-weight: 500;
+}
+.log-level.info { color: var(--blue); background: rgba(96,165,250,0.08); }
+.log-level.warning { color: var(--amber); background: rgba(245,158,11,0.08); }
+.log-level.error { color: var(--red); background: rgba(239,68,68,0.08); }
+.log-level.debug { color: var(--text-dim); background: rgba(72,79,88,0.2); }
+
+.log-text { color: var(--text); word-break: break-all; }
+.log-text.error { color: var(--red); }
+.log-text.warning { color: var(--amber); }
+.log-text.debug { color: var(--text-dim); }
+
+.empty-state {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  flex: 1; gap: 8px; color: var(--text-dim); font-family: var(--font);
+  padding: 40px; font-size: 14px;
+}
+
+.stats-bar {
+  display: flex; gap: 20px; padding: 8px 24px;
+  background: var(--surface); border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim); font-family: var(--mono);
+  flex-shrink: 0;
+}
+.stat { display: flex; gap: 6px; align-items: center; }
+.stat-count { font-weight: 600; }
+.stat-count.err { color: var(--red); }
+.stat-count.warn { color: var(--amber); }
+.stat-count.ok { color: var(--green); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">🎓</div>
+  <div class="header-info">
+    <h1>AI-ассистент куратора</h1>
+    <p>Журнал событий</p>
+  </div>
+  <nav class="header-nav">
+    <a href="/" class="nav-btn">💬 Чат</a>
+    <a href="/settings" class="nav-btn">⚙️ Настройки</a>
+    <a href="/logs" class="nav-btn active">📋 Логи</a>
+  </nav>
+</header>
+
+<div class="toolbar">
+  <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">Все</button>
+  <button class="filter-btn info" data-filter="info" onclick="setFilter('info', this)">INFO</button>
+  <button class="filter-btn warn" data-filter="warning" onclick="setFilter('warning', this)">WARN</button>
+  <button class="filter-btn err" data-filter="error" onclick="setFilter('error', this)">ERROR</button>
+  <button class="filter-btn" data-filter="debug" onclick="setFilter('debug', this)">DEBUG</button>
+
+  <div class="toolbar-right">
+    <span class="auto-refresh-label"><div class="auto-dot"></div>Автообновление</span>
+    <button class="btn-sm" onclick="scrollBottom()">↓ В конец</button>
+    <button class="btn-sm" onclick="loadLogs()">↻ Обновить</button>
+  </div>
+</div>
+
+<div class="log-container" id="logContainer"></div>
+
+<div class="stats-bar">
+  <div class="stat">Всего: <span class="stat-count" id="cnt-all">0</span></div>
+  <div class="stat">Ошибок: <span class="stat-count err" id="cnt-err">0</span></div>
+  <div class="stat">Предупреждений: <span class="stat-count warn" id="cnt-warn">0</span></div>
+  <div class="stat">Успешно: <span class="stat-count ok" id="cnt-ok">0</span></div>
+</div>
+
+<script>
+let allLogs = [];
+let currentFilter = 'all';
+
+async function loadLogs() {
+  try {
+    const r = await fetch('/api/logs?n=200');
+    const data = await r.json();
+    allLogs = data;
+    renderLogs();
+    updateStats();
+  } catch(e) {}
+}
+
+function renderLogs() {
+  const container = document.getElementById('logContainer');
+  const filtered = currentFilter === 'all'
+    ? allLogs
+    : allLogs.filter(l => l.level === currentFilter);
+
+  if (!filtered.length) {
+    container.innerHTML = '<div class="empty-state">📭 Нет записей</div>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(log => {
+    const parts = log.text.split(' ');
+    const time = parts[0] + ' ' + parts[1];
+    const levelMatch = log.text.match(/\[(.*?)\]/);
+    const level = log.level || 'info';
+    const levelLabel = level.toUpperCase().slice(0, 4);
+    const msgStart = log.text.indexOf(']') + 2;
+    const msg = log.text.slice(msgStart);
+
+    return `<div class="log-line">
+      <span class="log-time">${escHtml(time)}</span>
+      <span class="log-level ${level}">${levelLabel}</span>
+      <span class="log-text ${level}">${escHtml(msg)}</span>
+    </div>`;
+  }).join('');
+}
+
+function updateStats() {
+  document.getElementById('cnt-all').textContent = allLogs.length;
+  document.getElementById('cnt-err').textContent = allLogs.filter(l=>l.level==='error').length;
+  document.getElementById('cnt-warn').textContent = allLogs.filter(l=>l.level==='warning').length;
+  document.getElementById('cnt-ok').textContent = allLogs.filter(l=>l.level==='info').length;
+}
+
+function setFilter(filter, btn) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderLogs();
+}
+
+function scrollBottom() {
+  const c = document.getElementById('logContainer');
+  c.scrollTop = c.scrollHeight;
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Инициализация
+loadLogs();
+setInterval(loadLogs, 5000);  // автообновление каждые 5 сек
+</script>
+</body>
+</html>

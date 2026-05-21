@@ -1,0 +1,33 @@
+# AI-ассистент куратора — зависимости
+# Установка: pip install -r requirements.txt
+
+# Веб-фреймворк
+flask>=3.0.0
+
+# Парсинг HTML
+beautifulsoup4>=4.12.0
+
+# Работа с данными
+pandas>=2.1.0
+openpyxl>=3.1.2
+
+# PDF генерация
+reportlab>=4.0.0
+
+# Selenium — браузерная автоматизация
+selenium>=4.15.0
+
+# Автоустановка ChromeDriver
+webdriver-manager>=4.0.0
+
+# Обход детектирования (рекомендуется — используется в первую очередь)
+undetected-chromedriver>=3.5.0
+
+# Шифрование паролей (как в ProCurator)
+cryptography>=41.0.0
+
+# HTTP-запросы (Ollama API)
+requests>=2.31.0
+
+# Графики (опционально)
+matplotlib>=3.8.0

@@ -1,0 +1,1023 @@
+2026-05-08 13:19:48 [INFO] ==================================================
+2026-05-08 13:19:48 [INFO] Запуск AI-ассистента куратора
+2026-05-08 13:19:48 [INFO] ==================================================
+2026-05-08 13:19:48 [INFO] Планировщик запущен
+2026-05-08 13:22:11 [INFO] Планировщик остановлен
+2026-05-08 13:22:11 [INFO] Настройки сохранены
+2026-05-08 13:22:18 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-08 13:22:18 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-08 13:22:22 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-08 13:22:22 [INFO] Сбор данных с образовательного портала...
+2026-05-08 13:22:28 [INFO] Запуск браузера для сбора данных с портала...
+2026-05-08 13:22:28 [WARNING] Chrome не найден по стандартным путям Windows
+2026-05-08 13:22:28 [DEBUG] Edge найден как замена Chrome: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+2026-05-08 13:22:28 [INFO] Используется браузер: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+2026-05-08 13:23:57 [ERROR] Ошибка при сборе данных с портала: Message: session not created
+from unknown error: unrecognized Chrome version: Edg/147.0.3912.98; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6c339a8e5+14e45]
+	chromedriver!GetHandleVerifier [0x7ff6c339a950+14eb0]
+	chromedriver!(No symbol) [0x7ff6c310d6ed]
+	chromedriver!(No symbol) [0x7ff6c30dde44]
+	chromedriver!(No symbol) [0x7ff6c30de4d3]
+	chromedriver!(No symbol) [0x7ff6c30de331]
+	chromedriver!(No symbol) [0x7ff6c30fd85b]
+	chromedriver!(No symbol) [0x7ff6c315455b]
+	chromedriver!(No symbol) [0x7ff6c314eb51]
+	chromedriver!(No symbol) [0x7ff6c3149629]
+	chromedriver!(No symbol) [0x7ff6c319dce1]
+	chromedriver!(No symbol) [0x7ff6c319d546]
+	chromedriver!(No symbol) [0x7ff6c31590e8]
+	chromedriver!(No symbol) [0x7ff6c3159fc3]
+	chromedriver!GetHandleVerifier [0x7ff6c36b0149+32a6a9]
+	chromedriver!GetHandleVerifier [0x7ff6c36aa715+324c75]
+	chromedriver!GetHandleVerifier [0x7ff6c36cc012+346572]
+	chromedriver!GetHandleVerifier [0x7ff6c33b7cb5+32215]
+	chromedriver!GetHandleVerifier [0x7ff6c33c087c+3addc]
+	chromedriver!GetHandleVerifier [0x7ff6c33a40e4+1e644]
+	chromedriver!GetHandleVerifier [0x7ff6c33a4296+1e7f6]
+	chromedriver!GetHandleVerifier [0x7ff6c3388737+2c97]
+	KERNEL32!BaseThreadInitThunk [0x7fff4ea5e957+17]
+	ntdll!RtlUserThreadStart [0x7fff5026427c+2c]
+
+2026-05-08 13:23:57 [ERROR] Не удалось собрать данные: Message: session not created
+from unknown error: unrecognized Chrome version: Edg/147.0.3912.98; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6c339a8e5+14e45]
+	chromedriver!GetHandleVerifier [0x7ff6c339a950+14eb0]
+	chromedriver!(No symbol) [0x7ff6c310d6ed]
+	chromedriver!(No symbol) [0x7ff6c30dde44]
+	chromedriver!(No symbol) [0x7ff6c30de4d3]
+	chromedriver!(No symbol) [0x7ff6c30de331]
+	chromedriver!(No symbol) [0x7ff6c30fd85b]
+	chromedriver!(No symbol) [0x7ff6c315455b]
+	chromedriver!(No symbol) [0x7ff6c314eb51]
+	chromedriver!(No symbol) [0x7ff6c3149629]
+	chromedriver!(No symbol) [0x7ff6c319dce1]
+	chromedriver!(No symbol) [0x7ff6c319d546]
+	chromedriver!(No symbol) [0x7ff6c31590e8]
+	chromedriver!(No symbol) [0x7ff6c3159fc3]
+	chromedriver!GetHandleVerifier [0x7ff6c36b0149+32a6a9]
+	chromedriver!GetHandleVerifier [0x7ff6c36aa715+324c75]
+	chromedriver!GetHandleVerifier [0x7ff6c36cc012+346572]
+	chromedriver!GetHandleVerifier [0x7ff6c33b7cb5+32215]
+	chromedriver!GetHandleVerifier [0x7ff6c33c087c+3addc]
+	chromedriver!GetHandleVerifier [0x7ff6c33a40e4+1e644]
+	chromedriver!GetHandleVerifier [0x7ff6c33a4296+1e7f6]
+	chromedriver!GetHandleVerifier [0x7ff6c3388737+2c97]
+	KERNEL32!BaseThreadInitThunk [0x7fff4ea5e957+17]
+	ntdll!RtlUserThreadStart [0x7fff5026427c+2c]
+
+2026-05-08 13:38:12 [INFO] ==================================================
+2026-05-08 13:38:12 [INFO] Запуск AI-ассистента куратора
+2026-05-08 13:38:12 [INFO] ==================================================
+2026-05-08 13:38:12 [INFO] Планировщик запущен
+2026-05-08 13:39:44 [INFO] ==================================================
+2026-05-08 13:39:44 [INFO] Запуск AI-ассистента куратора
+2026-05-08 13:39:44 [INFO] ==================================================
+2026-05-08 13:39:44 [INFO] Планировщик запущен
+2026-05-21 18:36:28 [INFO] ==================================================
+2026-05-21 18:36:28 [INFO] Запуск AI-ассистента куратора
+2026-05-21 18:36:28 [INFO] ==================================================
+2026-05-21 18:36:28 [INFO] Планировщик запущен
+2026-05-21 18:37:50 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 18:37:50 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 18:37:54 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 18:37:54 [INFO] Сбор данных с образовательного портала...
+2026-05-21 18:37:54 [ERROR] Не удалось собрать данные: cannot import name 'parse_grade_data' from 'modules.scraper' (D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py)
+2026-05-21 18:42:12 [INFO] ==================================================
+2026-05-21 18:42:12 [INFO] Запуск AI-ассистента куратора
+2026-05-21 18:42:12 [INFO] ==================================================
+2026-05-21 18:42:12 [INFO] Планировщик запущен
+2026-05-21 18:42:20 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 18:42:20 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 18:42:24 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 18:42:24 [INFO] Сбор данных с образовательного портала...
+2026-05-21 18:42:33 [ERROR] Не удалось собрать данные: cannot import name 'parse_grade_data' from 'modules.analytics' (D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\analytics.py)
+2026-05-21 18:43:42 [INFO] ==================================================
+2026-05-21 18:43:42 [INFO] Запуск AI-ассистента куратора
+2026-05-21 18:43:42 [INFO] ==================================================
+2026-05-21 18:43:42 [INFO] Планировщик запущен
+2026-05-21 18:43:48 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 18:43:48 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 18:43:53 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 18:43:53 [INFO] Сбор данных с образовательного портала...
+2026-05-21 18:43:53 [ERROR] Не удалось собрать данные: cannot import name 'parse_grade_data' from 'modules.analytics' (D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\analytics.py)
+2026-05-21 18:45:41 [INFO] ==================================================
+2026-05-21 18:45:41 [INFO] Запуск AI-ассистента куратора
+2026-05-21 18:45:41 [INFO] ==================================================
+2026-05-21 18:45:41 [INFO] Планировщик запущен
+2026-05-21 18:45:47 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 18:45:47 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 18:45:51 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 18:45:51 [INFO] Сбор данных с образовательного портала...
+2026-05-21 18:45:51 [INFO] Попытка запуска через undetected-chromedriver...
+2026-05-21 18:45:59 [WARNING] undetected-chromedriver не работает: Binary Location Must be a String
+2026-05-21 18:45:59 [INFO] Попытка запуска через webdriver-manager...
+2026-05-21 18:46:21 [WARNING] webdriver-manager не сработал: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x0115A813+48355]
+	(No symbol) [0x010EC4B1]
+	(No symbol) [0x00FF5358]
+	(No symbol) [0x0100D27A]
+	(No symbol) [0x0100FE30]
+	(No symbol) [0x0100A99B]
+	(No symbol) [0x0103FCEE]
+	(No symbol) [0x0103F9A8]
+	(No symbol) [0x01040AD7]
+	(No symbol) [0x0104093C]
+	(No symbol) [0x0103A536]
+	(No symbol) [0x010182DC]
+	(No symbol) [0x010193DD]
+	GetHandleVerifier [0x013BAABD+2539405]
+	GetHandleVerifier [0x013FA78F+2800735]
+	GetHandleVerifier [0x013F456C+2775612]
+	GetHandleVerifier [0x011E51E0+616112]
+	(No symbol) [0x010F5F8C]
+	(No symbol) [0x010F2328]
+	(No symbol) [0x010F240B]
+	(No symbol) [0x010E4FF7]
+	BaseThreadInitThunk [0x761D5D49+25]
+	RtlInitializeExceptionChain [0x77B5D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x77B5D7C1+561]
+
+2026-05-21 18:46:21 [INFO] Попытка прямого запуска ChromeDriver...
+2026-05-21 18:48:34 [ERROR] Все способы запуска неудачны:
+  1. undetected-chromedriver: Binary Location Must be a String
+  2. webdriver-manager: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x0115A813+48355]
+	(No symbol) [0x010EC4B1]
+	(No symbol) [0x00FF5358]
+	(No symbol) [0x0100D27A]
+	(No symbol) [0x0100FE30]
+	(No symbol) [0x0100A99B]
+	(No symbol) [0x0103FCEE]
+	(No symbol) [0x0103F9A8]
+	(No symbol) [0x01040AD7]
+	(No symbol) [0x0104093C]
+	(No symbol) [0x0103A536]
+	(No symbol) [0x010182DC]
+	(No symbol) [0x010193DD]
+	GetHandleVerifier [0x013BAABD+2539405]
+	GetHandleVerifier [0x013FA78F+2800735]
+	GetHandleVerifier [0x013F456C+2775612]
+	GetHandleVerifier [0x011E51E0+616112]
+	(No symbol) [0x010F5F8C]
+	(No symbol) [0x010F2328]
+	(No symbol) [0x010F240B]
+	(No symbol) [0x010E4FF7]
+	BaseThreadInitThunk [0x761D5D49+25]
+	RtlInitializeExceptionChain [0x77B5D83B+107]
+	RtlGetAppContainerNamedObjectPath [0x77B5D7C1+561]
+
+  3. Прямой запуск: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a01749a5+15095]
+	chromedriver!GetHandleVerifier [0x7ff7a0174a00+150f0]
+	chromedriver!(No symbol) [0x7ff79fcc77fd]
+	chromedriver!(No symbol) [0x7ff79fcfa0c7]
+	chromedriver!(No symbol) [0x7ff79fcf587d]
+	chromedriver!(No symbol) [0x7ff79fd55fad]
+	chromedriver!(No symbol) [0x7ff79fd55896]
+	chromedriver!(No symbol) [0x7ff79fd57998]
+	chromedriver!(No symbol) [0x7ff79fd57756]
+	chromedriver!(No symbol) [0x7ff79fd13e1c]
+	chromedriver!(No symbol) [0x7ff79fd14d43]
+	chromedriver!GetHandleVerifier [0x7ff7a0754111+5f4801]
+	chromedriver!GetHandleVerifier [0x7ff7a074e91b+5ef00b]
+	chromedriver!GetHandleVerifier [0x7ff7a0772f95+613685]
+	chromedriver!GetHandleVerifier [0x7ff7a0192d0e+333fe]
+	chromedriver!GetHandleVerifier [0x7ff7a019b7ac+3be9c]
+	chromedriver!GetHandleVerifier [0x7ff7a017e334+1ea24]
+	chromedriver!GetHandleVerifier [0x7ff7a017e4c4+1ebb4]
+	chromedriver!GetHandleVerifier [0x7ff7a0161ba7+2297]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+2026-05-21 18:48:34 [ERROR] Ошибка при входе в портал: Не удалось запустить Chrome WebDriver.
+Установите Google Chrome и выполните:
+  pip install webdriver-manager undetected-chromedriver
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 88, in setup_driver
+    self.driver = webdriver.Chrome(options=chrome_options)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=self.options)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\common\webdriver.py", line 25, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 274, in __init__
+    self.start_session(capabilities)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 370, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 450, in execute
+    self.error_handler.check_response(response)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a01749a5+15095]
+	chromedriver!GetHandleVerifier [0x7ff7a0174a00+150f0]
+	chromedriver!(No symbol) [0x7ff79fcc77fd]
+	chromedriver!(No symbol) [0x7ff79fcfa0c7]
+	chromedriver!(No symbol) [0x7ff79fcf587d]
+	chromedriver!(No symbol) [0x7ff79fd55fad]
+	chromedriver!(No symbol) [0x7ff79fd55896]
+	chromedriver!(No symbol) [0x7ff79fd57998]
+	chromedriver!(No symbol) [0x7ff79fd57756]
+	chromedriver!(No symbol) [0x7ff79fd13e1c]
+	chromedriver!(No symbol) [0x7ff79fd14d43]
+	chromedriver!GetHandleVerifier [0x7ff7a0754111+5f4801]
+	chromedriver!GetHandleVerifier [0x7ff7a074e91b+5ef00b]
+	chromedriver!GetHandleVerifier [0x7ff7a0772f95+613685]
+	chromedriver!GetHandleVerifier [0x7ff7a0192d0e+333fe]
+	chromedriver!GetHandleVerifier [0x7ff7a019b7ac+3be9c]
+	chromedriver!GetHandleVerifier [0x7ff7a017e334+1ea24]
+	chromedriver!GetHandleVerifier [0x7ff7a017e4c4+1ebb4]
+	chromedriver!GetHandleVerifier [0x7ff7a0161ba7+2297]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 112, in login
+    self.setup_driver()
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 99, in setup_driver
+    raise RuntimeError(
+RuntimeError: Не удалось запустить Chrome WebDriver.
+Установите Google Chrome и выполните:
+  pip install webdriver-manager undetected-chromedriver
+2026-05-21 19:13:29 [INFO] ==================================================
+2026-05-21 19:13:29 [INFO] Запуск AI-ассистента куратора
+2026-05-21 19:13:29 [INFO] ==================================================
+2026-05-21 19:13:29 [INFO] Планировщик запущен
+2026-05-21 19:14:02 [INFO] Чат: получен запрос: 'индивидуальные отчёты для каждого студента'
+2026-05-21 19:14:02 [INFO] AI: обработка запроса: 'индивидуальные отчёты для каждого студента'
+2026-05-21 19:14:06 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 19:14:06 [INFO] Сбор данных с образовательного портала...
+2026-05-21 19:14:06 [INFO] Попытка запуска через undetected-chromedriver...
+2026-05-21 19:14:17 [WARNING] undetected-chromedriver не работает: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xe53283+10543]
+	undetected_chromedriver!GetHandleVerifier [0xe532c4+10584]
+	undetected_chromedriver!(No symbol) [0xc4a6f0]
+	undetected_chromedriver!(No symbol) [0xc736fd]
+	undetected_chromedriver!(No symbol) [0xc751c0]
+	undetected_chromedriver!(No symbol) [0xc6fc95]
+	undetected_chromedriver!(No symbol) [0xcc0503]
+	undetected_chromedriver!(No symbol) [0xcbffeb]
+	undetected_chromedriver!(No symbol) [0xcc1762]
+	undetected_chromedriver!(No symbol) [0xcc1567]
+	undetected_chromedriver!(No symbol) [0xcb5de6]
+	undetected_chromedriver!(No symbol) [0xc890d9]
+	undetected_chromedriver!(No symbol) [0xc89ea4]
+	undetected_chromedriver!GetHandleVerifier [0x10d61ea+2934aa]
+	undetected_chromedriver!GetHandleVerifier [0x10d176d+28ea2d]
+	undetected_chromedriver!GetHandleVerifier [0x10f24ab+2af76b]
+	undetected_chromedriver!GetHandleVerifier [0xe6c796+29a56]
+	undetected_chromedriver!GetHandleVerifier [0xe73a1d+30cdd]
+	undetected_chromedriver!GetHandleVerifier [0xe5bba8+18e68]
+	undetected_chromedriver!GetHandleVerifier [0xe5bd55+19015]
+	undetected_chromedriver!GetHandleVerifier [0xe44c3f+1eff]
+	KERNEL32!BaseThreadInitThunk [0x761d5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77b5d83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77b5d7c1+231]
+
+2026-05-21 19:14:17 [INFO] Попытка запуска через webdriver-manager...
+2026-05-21 19:14:19 [WARNING] webdriver-manager не сработал: [WinError 193] %1 не является приложением Win32
+2026-05-21 19:14:19 [INFO] Попытка прямого запуска ChromeDriver...
+2026-05-21 19:14:23 [ERROR] Все способы запуска неудачны:
+  1. undetected-chromedriver: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xe53283+10543]
+	undetected_chromedriver!GetHandleVerifier [0xe532c4+10584]
+	undetected_chromedriver!(No symbol) [0xc4a6f0]
+	undetected_chromedriver!(No symbol) [0xc736fd]
+	undetected_chromedriver!(No symbol) [0xc751c0]
+	undetected_chromedriver!(No symbol) [0xc6fc95]
+	undetected_chromedriver!(No symbol) [0xcc0503]
+	undetected_chromedriver!(No symbol) [0xcbffeb]
+	undetected_chromedriver!(No symbol) [0xcc1762]
+	undetected_chromedriver!(No symbol) [0xcc1567]
+	undetected_chromedriver!(No symbol) [0xcb5de6]
+	undetected_chromedriver!(No symbol) [0xc890d9]
+	undetected_chromedriver!(No symbol) [0xc89ea4]
+	undetected_chromedriver!GetHandleVerifier [0x10d61ea+2934aa]
+	undetected_chromedriver!GetHandleVerifier [0x10d176d+28ea2d]
+	undetected_chromedriver!GetHandleVerifier [0x10f24ab+2af76b]
+	undetected_chromedriver!GetHandleVerifier [0xe6c796+29a56]
+	undetected_chromedriver!GetHandleVerifier [0xe73a1d+30cdd]
+	undetected_chromedriver!GetHandleVerifier [0xe5bba8+18e68]
+	undetected_chromedriver!GetHandleVerifier [0xe5bd55+19015]
+	undetected_chromedriver!GetHandleVerifier [0xe44c3f+1eff]
+	KERNEL32!BaseThreadInitThunk [0x761d5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77b5d83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77b5d7c1+231]
+
+  2. webdriver-manager: [WinError 193] %1 не является приложением Win32
+  3. Прямой запуск: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600bff597]
+	chromedriver!(No symbol) [0x7ff600bfae5d]
+	chromedriver!(No symbol) [0x7ff600c5bced]
+	chromedriver!(No symbol) [0x7ff600c5b5f6]
+	chromedriver!(No symbol) [0x7ff600c5d6f8]
+	chromedriver!(No symbol) [0x7ff600c5d4b6]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+2026-05-21 19:14:23 [ERROR] Ошибка при входе в портал: Не удалось запустить Chrome WebDriver.
+Установите Google Chrome и выполните:
+  pip install webdriver-manager undetected-chromedriver
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 88, in setup_driver
+    self.driver = webdriver.Chrome(options=chrome_options)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=self.options)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\common\webdriver.py", line 25, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 274, in __init__
+    self.start_session(capabilities)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 370, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 450, in execute
+    self.error_handler.check_response(response)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600bff597]
+	chromedriver!(No symbol) [0x7ff600bfae5d]
+	chromedriver!(No symbol) [0x7ff600c5bced]
+	chromedriver!(No symbol) [0x7ff600c5b5f6]
+	chromedriver!(No symbol) [0x7ff600c5d6f8]
+	chromedriver!(No symbol) [0x7ff600c5d4b6]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 112, in login
+    self.setup_driver()
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 99, in setup_driver
+    raise RuntimeError(
+RuntimeError: Не удалось запустить Chrome WebDriver.
+Установите Google Chrome и выполните:
+  pip install webdriver-manager undetected-chromedriver
+2026-05-21 19:15:19 [INFO] Учётные данные сохранены: D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\data\credentials\credentials.enc
+2026-05-21 19:15:19 [INFO] Настройки сохранены
+2026-05-21 19:15:22 [INFO] Чат: получен запрос: 'индивидуальные отчёты для каждого студента'
+2026-05-21 19:15:22 [INFO] AI: обработка запроса: 'индивидуальные отчёты для каждого студента'
+2026-05-21 19:15:26 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 19:15:26 [INFO] Сбор данных с образовательного портала...
+2026-05-21 19:15:26 [INFO] Учётные данные загружены из credentials.enc
+2026-05-21 19:15:26 [INFO] Попытка запуска через undetected-chromedriver...
+2026-05-21 19:15:36 [WARNING] undetected-chromedriver не работает: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x12d3283+10543]
+	undetected_chromedriver!GetHandleVerifier [0x12d32c4+10584]
+	undetected_chromedriver!(No symbol) [0x10ca6f0]
+	undetected_chromedriver!(No symbol) [0x10f36fd]
+	undetected_chromedriver!(No symbol) [0x10f51c0]
+	undetected_chromedriver!(No symbol) [0x10efc95]
+	undetected_chromedriver!(No symbol) [0x1140503]
+	undetected_chromedriver!(No symbol) [0x113ffeb]
+	undetected_chromedriver!(No symbol) [0x1141762]
+	undetected_chromedriver!(No symbol) [0x1141567]
+	undetected_chromedriver!(No symbol) [0x1135de6]
+	undetected_chromedriver!(No symbol) [0x11090d9]
+	undetected_chromedriver!(No symbol) [0x1109ea4]
+	undetected_chromedriver!GetHandleVerifier [0x15561ea+2934aa]
+	undetected_chromedriver!GetHandleVerifier [0x155176d+28ea2d]
+	undetected_chromedriver!GetHandleVerifier [0x15724ab+2af76b]
+	undetected_chromedriver!GetHandleVerifier [0x12ec796+29a56]
+	undetected_chromedriver!GetHandleVerifier [0x12f3a1d+30cdd]
+	undetected_chromedriver!GetHandleVerifier [0x12dbba8+18e68]
+	undetected_chromedriver!GetHandleVerifier [0x12dbd55+19015]
+	undetected_chromedriver!GetHandleVerifier [0x12c4c3f+1eff]
+	KERNEL32!BaseThreadInitThunk [0x761d5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77b5d83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77b5d7c1+231]
+
+2026-05-21 19:15:36 [INFO] Попытка запуска через webdriver-manager...
+2026-05-21 19:15:38 [WARNING] webdriver-manager не сработал: [WinError 193] %1 не является приложением Win32
+2026-05-21 19:15:38 [INFO] Попытка прямого запуска ChromeDriver...
+2026-05-21 19:15:41 [ERROR] Все способы запуска неудачны:
+  1. undetected-chromedriver: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x12d3283+10543]
+	undetected_chromedriver!GetHandleVerifier [0x12d32c4+10584]
+	undetected_chromedriver!(No symbol) [0x10ca6f0]
+	undetected_chromedriver!(No symbol) [0x10f36fd]
+	undetected_chromedriver!(No symbol) [0x10f51c0]
+	undetected_chromedriver!(No symbol) [0x10efc95]
+	undetected_chromedriver!(No symbol) [0x1140503]
+	undetected_chromedriver!(No symbol) [0x113ffeb]
+	undetected_chromedriver!(No symbol) [0x1141762]
+	undetected_chromedriver!(No symbol) [0x1141567]
+	undetected_chromedriver!(No symbol) [0x1135de6]
+	undetected_chromedriver!(No symbol) [0x11090d9]
+	undetected_chromedriver!(No symbol) [0x1109ea4]
+	undetected_chromedriver!GetHandleVerifier [0x15561ea+2934aa]
+	undetected_chromedriver!GetHandleVerifier [0x155176d+28ea2d]
+	undetected_chromedriver!GetHandleVerifier [0x15724ab+2af76b]
+	undetected_chromedriver!GetHandleVerifier [0x12ec796+29a56]
+	undetected_chromedriver!GetHandleVerifier [0x12f3a1d+30cdd]
+	undetected_chromedriver!GetHandleVerifier [0x12dbba8+18e68]
+	undetected_chromedriver!GetHandleVerifier [0x12dbd55+19015]
+	undetected_chromedriver!GetHandleVerifier [0x12c4c3f+1eff]
+	KERNEL32!BaseThreadInitThunk [0x761d5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77b5d83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77b5d7c1+231]
+
+  2. webdriver-manager: [WinError 193] %1 не является приложением Win32
+  3. Прямой запуск: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600bff597]
+	chromedriver!(No symbol) [0x7ff600bfae5d]
+	chromedriver!(No symbol) [0x7ff600c5bced]
+	chromedriver!(No symbol) [0x7ff600c5b5f6]
+	chromedriver!(No symbol) [0x7ff600c5d6f8]
+	chromedriver!(No symbol) [0x7ff600c5d4b6]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+2026-05-21 19:15:41 [ERROR] Ошибка при входе в портал: Не удалось запустить Chrome WebDriver.
+Установите Google Chrome и выполните:
+  pip install webdriver-manager undetected-chromedriver
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 88, in setup_driver
+    self.driver = webdriver.Chrome(options=chrome_options)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=self.options)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\common\webdriver.py", line 25, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 274, in __init__
+    self.start_session(capabilities)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 370, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 450, in execute
+    self.error_handler.check_response(response)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600bff597]
+	chromedriver!(No symbol) [0x7ff600bfae5d]
+	chromedriver!(No symbol) [0x7ff600c5bced]
+	chromedriver!(No symbol) [0x7ff600c5b5f6]
+	chromedriver!(No symbol) [0x7ff600c5d6f8]
+	chromedriver!(No symbol) [0x7ff600c5d4b6]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 112, in login
+    self.setup_driver()
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 99, in setup_driver
+    raise RuntimeError(
+RuntimeError: Не удалось запустить Chrome WebDriver.
+Установите Google Chrome и выполните:
+  pip install webdriver-manager undetected-chromedriver
+2026-05-21 19:16:49 [INFO] ==================================================
+2026-05-21 19:16:49 [INFO] Запуск AI-ассистента куратора
+2026-05-21 19:16:49 [INFO] ==================================================
+2026-05-21 19:16:49 [INFO] Планировщик запущен
+2026-05-21 19:16:53 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 19:16:53 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 19:16:57 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 19:16:57 [INFO] Сбор данных с образовательного портала...
+2026-05-21 19:16:57 [INFO] Учётные данные загружены из credentials.enc
+2026-05-21 19:16:57 [INFO] Попытка запуска через undetected-chromedriver...
+2026-05-21 19:17:07 [WARNING] undetected-chromedriver не работает: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xe53283+10543]
+	undetected_chromedriver!GetHandleVerifier [0xe532c4+10584]
+	undetected_chromedriver!(No symbol) [0xc4a6f0]
+	undetected_chromedriver!(No symbol) [0xc736fd]
+	undetected_chromedriver!(No symbol) [0xc751c0]
+	undetected_chromedriver!(No symbol) [0xc6fc95]
+	undetected_chromedriver!(No symbol) [0xcc0503]
+	undetected_chromedriver!(No symbol) [0xcbffeb]
+	undetected_chromedriver!(No symbol) [0xcc1762]
+	undetected_chromedriver!(No symbol) [0xcc1567]
+	undetected_chromedriver!(No symbol) [0xcb5de6]
+	undetected_chromedriver!(No symbol) [0xc890d9]
+	undetected_chromedriver!(No symbol) [0xc89ea4]
+	undetected_chromedriver!GetHandleVerifier [0x10d61ea+2934aa]
+	undetected_chromedriver!GetHandleVerifier [0x10d176d+28ea2d]
+	undetected_chromedriver!GetHandleVerifier [0x10f24ab+2af76b]
+	undetected_chromedriver!GetHandleVerifier [0xe6c796+29a56]
+	undetected_chromedriver!GetHandleVerifier [0xe73a1d+30cdd]
+	undetected_chromedriver!GetHandleVerifier [0xe5bba8+18e68]
+	undetected_chromedriver!GetHandleVerifier [0xe5bd55+19015]
+	undetected_chromedriver!GetHandleVerifier [0xe44c3f+1eff]
+	KERNEL32!BaseThreadInitThunk [0x761d5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77b5d83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77b5d7c1+231]
+
+2026-05-21 19:17:07 [INFO] Попытка запуска через webdriver-manager...
+2026-05-21 19:17:09 [WARNING] webdriver-manager не сработал: [WinError 193] %1 не является приложением Win32
+2026-05-21 19:17:09 [INFO] Попытка прямого запуска ChromeDriver...
+2026-05-21 19:17:12 [ERROR] Все способы запуска неудачны:
+  1. undetected-chromedriver: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0xe53283+10543]
+	undetected_chromedriver!GetHandleVerifier [0xe532c4+10584]
+	undetected_chromedriver!(No symbol) [0xc4a6f0]
+	undetected_chromedriver!(No symbol) [0xc736fd]
+	undetected_chromedriver!(No symbol) [0xc751c0]
+	undetected_chromedriver!(No symbol) [0xc6fc95]
+	undetected_chromedriver!(No symbol) [0xcc0503]
+	undetected_chromedriver!(No symbol) [0xcbffeb]
+	undetected_chromedriver!(No symbol) [0xcc1762]
+	undetected_chromedriver!(No symbol) [0xcc1567]
+	undetected_chromedriver!(No symbol) [0xcb5de6]
+	undetected_chromedriver!(No symbol) [0xc890d9]
+	undetected_chromedriver!(No symbol) [0xc89ea4]
+	undetected_chromedriver!GetHandleVerifier [0x10d61ea+2934aa]
+	undetected_chromedriver!GetHandleVerifier [0x10d176d+28ea2d]
+	undetected_chromedriver!GetHandleVerifier [0x10f24ab+2af76b]
+	undetected_chromedriver!GetHandleVerifier [0xe6c796+29a56]
+	undetected_chromedriver!GetHandleVerifier [0xe73a1d+30cdd]
+	undetected_chromedriver!GetHandleVerifier [0xe5bba8+18e68]
+	undetected_chromedriver!GetHandleVerifier [0xe5bd55+19015]
+	undetected_chromedriver!GetHandleVerifier [0xe44c3f+1eff]
+	KERNEL32!BaseThreadInitThunk [0x761d5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77b5d83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77b5d7c1+231]
+
+  2. webdriver-manager: [WinError 193] %1 не является приложением Win32
+  3. Прямой запуск: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600bff597]
+	chromedriver!(No symbol) [0x7ff600bfae5d]
+	chromedriver!(No symbol) [0x7ff600c5bced]
+	chromedriver!(No symbol) [0x7ff600c5b5f6]
+	chromedriver!(No symbol) [0x7ff600c5d6f8]
+	chromedriver!(No symbol) [0x7ff600c5d4b6]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+2026-05-21 19:17:12 [ERROR] Ошибка при входе в портал: Не удалось запустить Chrome WebDriver.
+Установите Google Chrome и выполните:
+  pip install webdriver-manager undetected-chromedriver
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 88, in setup_driver
+    self.driver = webdriver.Chrome(options=chrome_options)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=self.options)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\common\webdriver.py", line 25, in __init__
+    super().__init__(*args, **kwargs)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 274, in __init__
+    self.start_session(capabilities)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 370, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 450, in execute
+    self.error_handler.check_response(response)
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600bff597]
+	chromedriver!(No symbol) [0x7ff600bfae5d]
+	chromedriver!(No symbol) [0x7ff600c5bced]
+	chromedriver!(No symbol) [0x7ff600c5b5f6]
+	chromedriver!(No symbol) [0x7ff600c5d6f8]
+	chromedriver!(No symbol) [0x7ff600c5d4b6]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 112, in login
+    self.setup_driver()
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 99, in setup_driver
+    raise RuntimeError(
+RuntimeError: Не удалось запустить Chrome WebDriver.
+Установите Google Chrome и выполните:
+  pip install webdriver-manager undetected-chromedriver
+2026-05-21 19:23:11 [INFO] ==================================================
+2026-05-21 19:23:11 [INFO] Запуск AI-ассистента куратора
+2026-05-21 19:23:11 [INFO] ==================================================
+2026-05-21 19:23:11 [INFO] Планировщик запущен
+2026-05-21 19:23:22 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 19:23:22 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 19:23:26 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 19:23:26 [INFO] Сбор данных с образовательного портала...
+2026-05-21 19:23:26 [INFO] Учётные данные из credentials.enc
+2026-05-21 19:23:26 [INFO] Попытка 1: undetected-chromedriver...
+2026-05-21 19:23:36 [WARNING] undetected-chromedriver: Message: session not created: cannot connect to chrome at 127.0.0.1:62721
+from session not created: This version of ChromeDriver only supports Chrome version 149
+Current browser version is 146.0.7680.165; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x7a3283+10543]
+	undetected_chromedriver!GetHandleVerifier [0x7a32c4+10584]
+	undetected_chromedriver!(No symbol) [0x59a6f0]
+	undetected_chromedriver!(No symbol) [0x5d64e2]
+	undetected_chromedriver!(No symbol) [0x5d551c]
+	undetected_chromedriver!(No symbol) [0x5cb615]
+	undetected_chromedriver!(No symbol) [0x5cb436]
+	undetected_chromedriver!(No symbol) [0x611d4f]
+	undetected_chromedriver!(No symbol) [0x611567]
+	undetected_chromedriver!(No symbol) [0x605de6]
+	undetected_chromedriver!(No symbol) [0x5d90d9]
+	undetected_chromedriver!(No symbol) [0x5d9ea4]
+	undetected_chromedriver!GetHandleVerifier [0xa261ea+2934aa]
+	undetected_chromedriver!GetHandleVerifier [0xa2176d+28ea2d]
+	undetected_chromedriver!GetHandleVerifier [0xa424ab+2af76b]
+	undetected_chromedriver!GetHandleVerifier [0x7bc796+29a56]
+	undetected_chromedriver!GetHandleVerifier [0x7c3a1d+30cdd]
+	undetected_chromedriver!GetHandleVerifier [0x7abba8+18e68]
+	undetected_chromedriver!GetHandleVerifier [0x7abd55+19015]
+	undetected_chromedriver!GetHandleVerifier [0x794c3f+1eff]
+	KERNEL32!BaseThreadInitThunk [0x761d5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77b5d83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77b5d7c1+231]
+
+2026-05-21 19:23:36 [INFO] Попытка 2: webdriver-manager...
+2026-05-21 19:23:39 [WARNING] webdriver-manager: [WinError 193] %1 не является приложением Win32
+2026-05-21 19:23:39 [INFO] Попытка 3: прямой запуск chromedriver...
+2026-05-21 19:23:40 [INFO] ✓ Запущен напрямую
+2026-05-21 19:23:40 [INFO] Переход: https://newlms.magtu.ru/
+2026-05-21 19:24:06 [ERROR] Ошибка входа: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600c26b9e]
+	chromedriver!(No symbol) [0x7ff600c26eac]
+	chromedriver!(No symbol) [0x7ff600c76fe7]
+	chromedriver!(No symbol) [0x7ff600c73b9b]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 118, in login
+    username_field = WebDriverWait(self.driver, 10).until(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600c26b9e]
+	chromedriver!(No symbol) [0x7ff600c26eac]
+	chromedriver!(No symbol) [0x7ff600c76fe7]
+	chromedriver!(No symbol) [0x7ff600c73b9b]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\scraper.py", line 122, in login
+    username_field = WebDriverWait(self.driver, 10).until(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6011429c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff600e6a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff600bcdb2d]
+	chromedriver!(No symbol) [0x7ff600c26b9e]
+	chromedriver!(No symbol) [0x7ff600c26eac]
+	chromedriver!(No symbol) [0x7ff600c76fe7]
+	chromedriver!(No symbol) [0x7ff600c73b9b]
+	chromedriver!(No symbol) [0x7ff600c19298]
+	chromedriver!(No symbol) [0x7ff600c1a183]
+	chromedriver!GetHandleVerifier [0x7ff60116de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff601168588+313348]
+	chromedriver!GetHandleVerifier [0x7ff601189d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff600e86785+31545]
+	chromedriver!GetHandleVerifier [0x7ff600e8facc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff600e73634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff600e737e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff600e57e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7fffaedae957+17]
+	ntdll!RtlUserThreadStart [0x7fffb030427c+2c]
+
+2026-05-21 19:24:08 [INFO] Браузер закрыт
+2026-05-21 20:33:46 [INFO] Настройки сохранены
+2026-05-21 20:33:54 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 20:33:54 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 20:33:58 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 20:33:58 [INFO] Сбор данных с образовательного портала...
+2026-05-21 20:33:58 [INFO] Учётные данные из credentials.enc
+2026-05-21 20:33:58 [INFO] Попытка 1: undetected-chromedriver...
+2026-05-21 20:34:13 [WARNING] undetected-chromedriver: Message: session not created: cannot connect to chrome at 127.0.0.1:57482
+from session not created: This version of ChromeDriver only supports Chrome version 149
+Current browser version is 148.0.7778.168; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x493283+10543]
+	undetected_chromedriver!GetHandleVerifier [0x4932c4+10584]
+	undetected_chromedriver!(No symbol) [0x28a6f0]
+	undetected_chromedriver!(No symbol) [0x2c64e2]
+	undetected_chromedriver!(No symbol) [0x2c551c]
+	undetected_chromedriver!(No symbol) [0x2bb615]
+	undetected_chromedriver!(No symbol) [0x2bb436]
+	undetected_chromedriver!(No symbol) [0x301d4f]
+	undetected_chromedriver!(No symbol) [0x301567]
+	undetected_chromedriver!(No symbol) [0x2f5de6]
+	undetected_chromedriver!(No symbol) [0x2c90d9]
+	undetected_chromedriver!(No symbol) [0x2c9ea4]
+	undetected_chromedriver!GetHandleVerifier [0x7161ea+2934aa]
+	undetected_chromedriver!GetHandleVerifier [0x71176d+28ea2d]
+	undetected_chromedriver!GetHandleVerifier [0x7324ab+2af76b]
+	undetected_chromedriver!GetHandleVerifier [0x4ac796+29a56]
+	undetected_chromedriver!GetHandleVerifier [0x4b3a1d+30cdd]
+	undetected_chromedriver!GetHandleVerifier [0x49bba8+18e68]
+	undetected_chromedriver!GetHandleVerifier [0x49bd55+19015]
+	undetected_chromedriver!GetHandleVerifier [0x484c3f+1eff]
+	KERNEL32!BaseThreadInitThunk [0x761d5d49+19]
+	ntdll!RtlInitializeExceptionChain [0x77b5d83b+6b]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x77b5d7c1+231]
+
+2026-05-21 20:34:13 [INFO] Попытка 2: webdriver-manager...
+2026-05-21 20:34:21 [INFO] ✓ Запущен через webdriver-manager
+2026-05-21 20:34:21 [INFO] Переход: https://newlms.magtu.ru/login/index.php
+2026-05-21 20:34:28 [INFO] ✓ Успешный вход в портал МГТУ
+2026-05-21 20:34:28 [INFO] Кабинет куратора: https://newlms.magtu.ru/report/magtu_cabinet_for_curator/index.php?gradebook=4618
+2026-05-21 20:34:42 [ERROR] Таблица куратора не найдена
+2026-05-21 20:34:45 [INFO] Браузер закрыт
+2026-05-21 20:41:27 [INFO] ==================================================
+2026-05-21 20:41:27 [INFO] Запуск AI-ассистента куратора
+2026-05-21 20:41:27 [INFO] ==================================================
+2026-05-21 20:41:27 [INFO] Планировщик запущен
+2026-05-21 21:22:24 [INFO] ==================================================
+2026-05-21 21:22:24 [INFO] Запуск AI-ассистента куратора
+2026-05-21 21:22:24 [INFO] ==================================================
+2026-05-21 21:22:24 [INFO] Планировщик запущен
+2026-05-21 21:24:47 [INFO] ==================================================
+2026-05-21 21:24:47 [INFO] Запуск AI-ассистента куратора
+2026-05-21 21:24:47 [INFO] ==================================================
+2026-05-21 21:24:47 [INFO] Планировщик запущен
+2026-05-21 21:29:57 [INFO] ==================================================
+2026-05-21 21:29:57 [INFO] Запуск AI-ассистента куратора
+2026-05-21 21:29:57 [INFO] ==================================================
+2026-05-21 21:29:57 [INFO] Планировщик запущен
+2026-05-21 21:31:26 [INFO] Настройки сохранены
+2026-05-21 21:33:25 [INFO] ==================================================
+2026-05-21 21:33:25 [INFO] Запуск AI-ассистента куратора
+2026-05-21 21:33:25 [INFO] ==================================================
+2026-05-21 21:33:25 [INFO] Планировщик запущен
+2026-05-21 21:34:02 [INFO] ==================================================
+2026-05-21 21:34:02 [INFO] Запуск AI-ассистента куратора
+2026-05-21 21:34:02 [INFO] ==================================================
+2026-05-21 21:34:02 [INFO] Планировщик запущен
+2026-05-21 21:36:12 [INFO] ==================================================
+2026-05-21 21:36:12 [INFO] Запуск AI-ассистента куратора
+2026-05-21 21:36:12 [INFO] ==================================================
+2026-05-21 21:36:12 [INFO] Планировщик запущен
+2026-05-21 22:20:46 [INFO] ==================================================
+2026-05-21 22:20:46 [INFO] Запуск AI-ассистента куратора
+2026-05-21 22:20:46 [INFO] ==================================================
+2026-05-21 22:20:46 [INFO] Планировщик запущен
+2026-05-21 22:20:59 [INFO] Настройки сохранены
+2026-05-21 22:21:05 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:21:05 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:21:09 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:21:09 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:21:15 [ERROR] Не удалось собрать данные: cannot import name 'parse_grade_data' from 'modules.analytics' (D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\analytics.py)
+2026-05-21 22:21:35 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:21:35 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:21:39 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:21:39 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:21:39 [ERROR] Не удалось собрать данные: cannot import name 'parse_grade_data' from 'modules.analytics' (D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\analytics.py)
+2026-05-21 22:21:49 [INFO] ==================================================
+2026-05-21 22:21:49 [INFO] Запуск AI-ассистента куратора
+2026-05-21 22:21:49 [INFO] ==================================================
+2026-05-21 22:21:49 [INFO] Планировщик запущен
+2026-05-21 22:21:54 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:21:54 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:21:58 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:21:58 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:22:00 [ERROR] Не удалось собрать данные: cannot import name 'parse_grade_data' from 'modules.analytics' (D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\analytics.py)
+2026-05-21 22:25:35 [INFO] ==================================================
+2026-05-21 22:25:35 [INFO] Запуск AI-ассистента куратора
+2026-05-21 22:25:35 [INFO] ==================================================
+2026-05-21 22:25:35 [INFO] Планировщик запущен
+2026-05-21 22:25:42 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:25:42 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:25:46 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:25:46 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:25:46 [ERROR] Не удалось собрать данные: cannot import name 'parse_grade_data' from 'modules.analytics' (D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\analytics.py)
+2026-05-21 22:27:24 [INFO] ==================================================
+2026-05-21 22:27:24 [INFO] Запуск AI-ассистента куратора
+2026-05-21 22:27:24 [INFO] ==================================================
+2026-05-21 22:27:24 [INFO] Планировщик запущен
+2026-05-21 22:27:26 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:27:26 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:27:30 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:27:30 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:27:31 [ERROR] Не удалось собрать данные: cannot import name 'parse_grade_data' from 'modules.analytics' (D:\PARIS\unik\7sem\ВКР\ai_curator_assistant\modules\analytics.py)
+2026-05-21 22:27:55 [INFO] ==================================================
+2026-05-21 22:27:55 [INFO] Запуск AI-ассистента куратора
+2026-05-21 22:27:55 [INFO] ==================================================
+2026-05-21 22:27:55 [INFO] Планировщик запущен
+2026-05-21 22:28:00 [INFO] Чат: получен запрос: 'индивидуальные отчёты для каждого студента'
+2026-05-21 22:28:00 [INFO] AI: обработка запроса: 'индивидуальные отчёты для каждого студента'
+2026-05-21 22:28:04 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:28:04 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:28:24 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:28:24 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:28:28 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:28:28 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:28:35 [INFO] Настройки сохранены
+2026-05-21 22:28:38 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:28:38 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:28:42 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:28:42 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:28:42 [INFO] [ТЕСТОВЫЙ РЕЖИМ] HTML загружен с диска: D:\PARIS\unik\7sem\ВКР\scrap_portal\scrap_portal\portal_curator.html
+2026-05-21 22:28:42 [INFO] [ТЕСТОВЫЙ РЕЖИМ] Размер HTML: 224383 символов
+2026-05-21 22:28:42 [INFO] Группа: АПИб-22-3
+2026-05-21 22:28:42 [INFO] Найдено студентов: 23
+2026-05-21 22:28:42 [INFO] Найдено дисциплин: 61
+2026-05-21 22:28:42 [INFO] DataFrame: 61 дисциплин × 23 студентов
+2026-05-21 22:28:43 [INFO] Отчёт за весь период: 2 файлов
+2026-05-21 22:29:07 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:29:07 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:29:11 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:29:11 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:29:11 [INFO] [ТЕСТОВЫЙ РЕЖИМ] HTML загружен с диска: D:\PARIS\unik\7sem\ВКР\scrap_portal\scrap_portal\portal_curator.html
+2026-05-21 22:29:11 [INFO] [ТЕСТОВЫЙ РЕЖИМ] Размер HTML: 224383 символов
+2026-05-21 22:29:11 [INFO] Группа: АПИб-22-3
+2026-05-21 22:29:11 [INFO] Найдено студентов: 23
+2026-05-21 22:29:11 [INFO] Найдено дисциплин: 61
+2026-05-21 22:29:11 [INFO] DataFrame: 61 дисциплин × 23 студентов
+2026-05-21 22:29:12 [INFO] Отчёт за весь период: 2 файлов
+2026-05-21 22:29:31 [ERROR] Ошибка отправки email: Connection unexpectedly closed: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
+2026-05-21 22:29:38 [INFO] Письмо отправлено: ruslanr26@mail.ru
+2026-05-21 22:34:14 [INFO] ==================================================
+2026-05-21 22:34:14 [INFO] Запуск AI-ассистента куратора
+2026-05-21 22:34:14 [INFO] ==================================================
+2026-05-21 22:34:14 [INFO] Планировщик запущен
+2026-05-21 22:34:24 [INFO] Чат: получен запрос: 'полный отчёт за весь период обучения'
+2026-05-21 22:34:24 [INFO] AI: обработка запроса: 'полный отчёт за весь период обучения'
+2026-05-21 22:34:28 [WARNING] Ollama недоступен, используется rule-based парсинг
+2026-05-21 22:34:28 [INFO] Сбор данных с образовательного портала...
+2026-05-21 22:34:31 [INFO] [ТЕСТОВЫЙ РЕЖИМ] HTML загружен с диска: D:\PARIS\unik\7sem\ВКР\scrap_portal\scrap_portal\portal_curator.html
+2026-05-21 22:34:31 [INFO] [ТЕСТОВЫЙ РЕЖИМ] Размер HTML: 224383 символов
+2026-05-21 22:34:31 [INFO] Группа: АПИб-22-3
+2026-05-21 22:34:31 [INFO] Найдено студентов: 23
+2026-05-21 22:34:31 [INFO] Найдено дисциплин: 61
+2026-05-21 22:34:31 [INFO] DataFrame: 61 дисциплин × 23 студентов
+2026-05-21 22:34:32 [INFO] Отчёт за весь период: 2 файлов
+2026-05-21 22:34:36 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.xlsx
+2026-05-21 22:34:36 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.pdf
+2026-05-21 22:34:36 [ERROR] SMTP ошибка: Connection unexpectedly closed: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
+2026-05-21 22:34:41 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.xlsx
+2026-05-21 22:34:41 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.pdf
+2026-05-21 22:34:41 [ERROR] SMTP ошибка: Connection unexpectedly closed: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
+2026-05-21 22:34:47 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.xlsx
+2026-05-21 22:34:47 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.pdf
+2026-05-21 22:34:47 [ERROR] SMTP ошибка: Connection unexpectedly closed: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
+2026-05-21 22:34:49 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.xlsx
+2026-05-21 22:34:49 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.pdf
+2026-05-21 22:34:49 [ERROR] SMTP ошибка: Connection unexpectedly closed: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение
+2026-05-21 22:35:02 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.xlsx
+2026-05-21 22:35:02 [INFO] Прикреплён файл: весь_период_АПИб-22-3_21_05_2026.pdf
+2026-05-21 22:35:24 [INFO] Письмо отправлено: ruslanr26@mail.ru (2 вложений)
