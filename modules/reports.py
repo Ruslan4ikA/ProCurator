@@ -387,3 +387,56 @@ def report_by_semester(df, group_name, semester_number, individual=False):
         files = [xp, pp]
     logger.info(f"Отчёт за {semester_number} семестр: {files}")
     return files
+
+def report_student(df, group_name: str, student_name: str, num_sem=None):
+    """Отчёт по конкретному студенту — поиск по подстроке ФИО."""
+    import re
+
+    student_cols = get_student_cols(df)
+
+    # Ищем столбец (регистронезависимо, по подстроке)
+    matched = [c for c in student_cols if student_name.lower() in c.lower()]
+
+    if not matched:
+        # Пробуем частичное совпадение по первым буквам слова
+        matched = [
+            c for c in student_cols
+            if any(student_name.lower() in w.lower() for w in c.split())
+        ]
+
+    if not matched:
+        logger.warning(f"Студент «{student_name}» не найден. Доступны: {student_cols[:5]}")
+        return [], f"Студент «{student_name}» не найден в группе {group_name}."
+
+    col = matched[0]  # берём первое совпадение
+
+    # Фильтруем по семестру если задан
+    work_df = df.copy()
+    if num_sem:
+        work_df = work_df[work_df["Семестр"].str.contains(f"{num_sem} семестр", na=False)]
+        if work_df.empty:
+            return [], f"Нет данных за {num_sem} семестр для студента {col}."
+
+    # Формируем таблицу: Семестр / Дисциплина / Тип / Оценка
+    student_df = work_df[["Семестр", "Дисциплина", "Тип", col]].rename(columns={col: "Оценка"})
+
+    # Имя файла — безопасное (убираем спецсимволы)
+    safe_name = re.sub(r"[^\w]", "_", col)
+    sem_label = f"_{num_sem}сем" if num_sem else "_все_сем"
+    rd = get_report_dir(group_name, "По_студентам")
+    dt = today_str()
+
+    xp = os.path.join(rd, f"{safe_name}{sem_label}_{dt}.xlsx")
+    pp = os.path.join(rd, f"{safe_name}{sem_label}_{dt}.pdf")
+
+    title = f"Успеваемость: {col}"
+    if num_sem:
+        title += f" · {num_sem} семестр"
+    else:
+        title += " · весь период обучения"
+
+    _save_excel(student_df, xp, highlight=False)
+    _save_pdf(student_df, pp, title, group_name)
+
+    logger.info(f"Отчёт по студенту {col}: {len(student_df)} строк → {xp}")
+    return [xp, pp], col
