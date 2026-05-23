@@ -3,6 +3,7 @@
 /logs
 /venv
 /.idea
+/__pycache__
 
 
 .secret_key
