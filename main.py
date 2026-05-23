@@ -67,28 +67,24 @@ def _execute_command(intent: dict) -> str:
         files = report_debtors(df, group_name, num_sem=int(n) if n else None)
         _last_reports = files
         if not files:
-            return (f"✅ **Тип отчёта: Должники · {group_name}**\n"
-                    f"Данные за {n if n else '...'} семестр получены. Должников не найдено.")
-        sem_str = f"{n} семестр" if n else "текущий семестр"
-        return (f"✅ **Тип отчёта: Должники · {group_name} · {sem_str}**\n"
-                f"Файлов: {len(files)} (.xlsx + .pdf). Нажмите «Отправить» для рассылки.")
+            return f"✅ Данные получены. Должников не найдено."
+        return (f"✅ Отчёт по должникам для **{group_name}** готов.\n"
+                f"Файлов: {len(files)}. Нажмите «Отправить» для рассылки.")
 
     elif func == "report_full_period":
         from modules.reports import report_full_period
         files = report_full_period(df, group_name, individual=bool(params.get("individual",False)))
         _last_reports = files
-        ind_label = "индивидуальные" if params.get("individual") else "сводный"
-        return (f"✅ **Тип отчёта: Весь период · {group_name} · {ind_label}**\n"
-                f"Файлов: {len(files)} (.xlsx + .pdf). Нажмите «Отправить» для рассылки.")
+        return (f"✅ Полный отчёт для **{group_name}** готов.\n"
+                f"Файлов: {len(files)}. Нажмите «Отправить» для рассылки.")
 
     elif func == "report_by_semester":
         from modules.reports import report_by_semester
         n = int(params.get("semester_number", 1))
         files = report_by_semester(df, group_name, n)
         _last_reports = files
-        ind_label = "индивидуальные" if individual else "сводный"
-        return (f"✅ **Тип отчёта: {n} семестр · {group_name} · {ind_label}**\n"
-                f"Файлов: {len(files)} (.xlsx + .pdf). Нажмите «Отправить» для рассылки.")
+        return (f"✅ Отчёт за {n} семестр для **{group_name}** готов.\n"
+                f"Файлов: {len(files)}. Нажмите «Отправить» для рассылки.")
 
     elif func == "report_student":
         from modules.reports import report_student
@@ -96,18 +92,24 @@ def _execute_command(intent: dict) -> str:
         n = params.get("num_sem")
         if not name:
             return "❓ Укажите фамилию студента. Например: «отчёт по Иванову за 5 семестр»"
-        files, matched = report_student(df, group_name, name, num_sem=int(n) if n else None)
+        result = report_student(df, group_name, name, num_sem=int(n) if n else None)
+        # report_student возвращает (files, matched_name) или ([], error_str)
+        if isinstance(result, tuple):
+            files, matched = result
+        else:
+            files, matched = result, name
         if not files:
-            return f"⚠️ {matched}"  # matched содержит сообщение об ошибке
+            return f"⚠️ {matched}"
         _last_reports = files
         sem_info = f" за {n} семестр" if n else " за весь период"
-        return (f"✅ Отчёт по студенту **{matched}**{sem_info} готов.\n"
+        return (f"✅ **Тип отчёта: По студенту · {matched}{sem_info}**\n"
                 f"Файлов: {len(files)} (.xlsx + .pdf). Нажмите «Отправить» для рассылки.")
 
     return ("❓ Не могу распознать запрос. Попробуйте:\n"
             "• «отчёт по должникам за 6 семестр»\n"
             "• «полный отчёт за весь период»\n"
             "• «отчёт за 5 семестр»\n"
+            "• «отчёт по Иванову за 5 семестр»\n"
             "• «статистика»\n"
             "• «отправить отчёты»")
 

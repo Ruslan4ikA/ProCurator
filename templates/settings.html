@@ -318,7 +318,21 @@ select option { background: var(--surface2); }
           <input type="email" id="smtp_from" placeholder="curator@mgtu.ru">
         </div>
         <div class="field">
-          <label>Получатели (через запятую)</label>
+          <label>📋 Excel-файл получателей (рекомендуется)</label>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input type="text" id="recipients_excel_path"
+                   placeholder="D:\путь\к\получатели.xlsx" style="flex:1;">
+            <button class="btn btn-secondary" onclick="testRecipients()" style="white-space:nowrap;">✅ Проверить</button>
+          </div>
+          <small style="color:var(--text-dim);font-size:11px;margin-top:6px;display:block;line-height:1.5;">
+            Три колонки: <b>ФИО родителя</b> | <b>ФИО ученика</b> | <b>Почта родителя</b>.<br>
+            Если файл задан — каждый родитель получит письмо только с отчётом своего ребёнка.<br>
+            Если не задан — рассылка идёт по адресам ниже.
+          </small>
+          <div class="test-result" id="recipients-test-result" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label>Получатели (через запятую, если нет Excel-файла)</label>
           <input type="text" id="email_recipients" placeholder="parent1@mail.ru, parent2@yandex.ru">
         </div>
         <div class="btn-row">
@@ -469,9 +483,9 @@ async function loadSettings() {
 
     // Заполняем поля
     const fields = [
-      'portal_url','portal_grades_url','portal_login','portal_password','group_id',
+      'portal_url','portal_grades_url','portal_login','portal_password','group_id','recipients_excel_path','recipients_excel_path',
       'max_token','max_user_id',
-      'smtp_host','smtp_port','smtp_login','smtp_password','smtp_from','email_recipients',
+      'smtp_host','smtp_port','smtp_login','smtp_password','smtp_from','email_recipients','recipients_excel_path',
       'ollama_url','ollama_model','report_dir','schedule_time'
     ];
     fields.forEach(f => {
@@ -516,6 +530,8 @@ async function saveSettings() {
     portal_login: v('portal_login'),
     portal_password: v('portal_password'),
     group_id: v('group_id'),
+    recipients_excel_path: v('recipients_excel_path'),
+    recipients_excel_path: v('recipients_excel_path'),
     headless_mode: v('headless_mode') !== 'false',
     send_method: currentMethod,
     max_token: v('max_token'),
@@ -526,6 +542,7 @@ async function saveSettings() {
     smtp_password: v('smtp_password'),
     smtp_from: v('smtp_from'),
     email_recipients: v('email_recipients'),
+    recipients_excel_path: v('recipients_excel_path'),
     ollama_url: v('ollama_url'),
     ollama_model: v('ollama_model'),
     report_dir: v('report_dir') || 'reports',
@@ -608,6 +625,19 @@ function showMsg(msg, ok) {
 
 // Инициализация
 loadSettings();
+
+async function testRecipients() {
+  const path = document.getElementById('recipients_excel_path').value;
+  if (!path) { showToast('Укажите путь к Excel-файлу', 'warn'); return; }
+  const r = await fetch('/api/test/recipients', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({path})
+  });
+  const d = await r.json();
+  showToast(d.message, d.success ? 'ok' : 'err');
+}
+
 </script>
 </body>
 </html>
