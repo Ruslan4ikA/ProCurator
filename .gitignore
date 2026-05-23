@@ -5,7 +5,7 @@
 /.idea
 /__pycache__
 
-
+settings.json
 .secret_key
 .enc
 .pyc
