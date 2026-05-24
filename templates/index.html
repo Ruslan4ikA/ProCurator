@@ -477,6 +477,54 @@ textarea::placeholder { color: var(--text-dim); }
   from { opacity: 0; transform: translateX(20px); }
   to { opacity: 1; transform: translateX(0); }
 }
+
+  /* ── Модальное окно подтверждения рассылки ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--bg, #1e1e2e);
+    border: 1px solid var(--border, #333);
+    border-radius: 12px;
+    padding: 28px 32px;
+    max-width: 600px;
+    width: 95%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+  .modal h3 { margin: 0 0 16px; font-size: 17px; color: var(--accent, #7aa2f7); }
+  .modal-files { font-size: 12px; color: var(--text-dim, #888); margin-bottom: 14px; }
+  .modal-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border, #333);
+    font-size: 13px;
+  }
+  .modal-row:last-of-type { border-bottom: none; }
+  .modal-row .label { color: var(--text-dim, #888); font-size: 11px; margin-bottom: 2px; }
+  .modal-row .value { font-weight: 600; }
+  .modal-row .files-list { font-size: 11px; color: var(--text-dim, #888); }
+  .modal-row .warn  { color: #f7a84a; font-size: 12px; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+  .btn-confirm { background: #2ecc71; color: #000; border: none;
+                 padding: 9px 22px; border-radius: 8px;
+                 font-weight: 700; cursor: pointer; font-size: 14px; }
+  .btn-cancel  { background: transparent; color: var(--text, #ccc);
+                 border: 1px solid var(--border, #555);
+                 padding: 9px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; }
+  .btn-confirm:hover { background: #27ae60; }
+  .modal-empty { color: #f7768e; text-align: center; padding: 20px 0; }
+
 </style>
 </head>
 <body>
@@ -564,7 +612,7 @@ textarea::placeholder { color: var(--text-dim); }
 
     <div class="send-section">
       <div class="sidebar-title">Отправка</div>
-      <button class="send-btn" id="sendBtn" onclick="sendReports()">
+      <button class="send-btn" id="sendBtn" onclick="openSendModal()">
         📤 Отправить отчёты
       </button>
       <p style="font-size:11px;color:var(--text-dim);margin-top:6px;text-align:center;" id="sendLabel">
@@ -795,6 +843,107 @@ function showToast(msg, type = 'info') {
 loadStatus();
 setInterval(loadStatus, 15000);
 document.getElementById('msgInput').focus();
+
+// ── Модальное окно отправки ──────────────────────────────────────────
+async function openSendModal() {
+  let d;
+  try {
+    const res = await fetch('/api/preview_send', {method:'POST',
+      headers:{'Content-Type':'application/json'}, body:'{}'});
+    if (!res.ok) {
+      showToast('❌ Сервер вернул ошибку ' + res.status + '. Перезапустите приложение.', 'error');
+      return;
+    }
+    d = await res.json();
+  } catch(e) {
+    showToast('❌ Не удалось получить превью: ' + e.message, 'error');
+    return;
+  }
+
+  if (!d.success) {
+    showToast('⚠️ ' + (d.message || 'Нет данных для рассылки'), 'warn');
+    return;
+  }
+  // Если preview пуст — всё равно показываем модал с предупреждением
+
+  // Файлы
+<!--  document.getElementById('modalFiles').textContent =-->
+<!--    '📎 Файлы: ' + (d.files.length ? d.files.join(', ') : 'нет');-->
+
+  // Строки получателей
+  const container = document.getElementById('modalRows');
+  container.innerHTML = '';
+
+  let hasFiles = false;
+
+  if (!d.preview || d.preview.length === 0) {
+    container.innerHTML = '<div style="color:#f7768e;padding:16px 0;text-align:center">' +
+      '⚠️ Получатели не настроены.<br>' +
+      'Укажите Excel-файл получателей или адреса в поле «Получатели» в <a href="/settings" style="color:#7aa2f7">Настройках</a>.' +
+      '</div>';
+    document.getElementById('btnConfirm').disabled = true;
+    document.getElementById('sendModal').classList.add('open');
+    return;
+  }
+
+  d.preview.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'modal-row';
+
+    const filesStr = item.files.length
+      ? item.files.join(', ')
+      : '—';
+    if (item.files.length) hasFiles = true;
+
+    row.innerHTML = `
+      <div>
+        <div class="label">Родитель</div>
+        <div class="value">${item.parent}</div>
+        <div class="label" style="margin-top:4px">Email</div>
+        <div style="font-size:12px">${item.email}</div>
+      </div>
+      <div>
+        <div class="label">Ребёнок</div>
+        <div class="value">${item.student || '(все)'}</div>
+        <div class="label" style="margin-top:4px">Файл(ы)</div>
+        <div class="files-list">${filesStr}</div>
+        ${item.warning ? '<div class="warn">' + item.warning + '</div>' : ''}
+      </div>`;
+    container.appendChild(row);
+  });
+
+  // Блокируем кнопку если нет ни одного файла
+  document.getElementById('btnConfirm').disabled = !hasFiles;
+
+  document.getElementById('sendModal').classList.add('open');
+}
+
+function closeSendModal() {
+  document.getElementById('sendModal').classList.remove('open');
+}
+
+async function confirmSend() {
+  closeSendModal();
+  const res = await fetch('/api/send', {method:'POST',
+    headers:{'Content-Type':'application/json'}, body:'{}'});
+  const d = await res.json();
+  showToast(d.success ? '✅ ' + d.message : '❌ ' + d.message, d.success ? 'success' : 'error');
+}
+
 </script>
+
+<!-- Модальное окно подтверждения рассылки -->
+<div class="modal-overlay" id="sendModal">
+  <div class="modal">
+    <h3>📬 Подтверждение рассылки</h3>
+    <div class="modal-files" id="modalFiles"></div>
+    <div id="modalRows"></div>
+    <div class="modal-actions">
+      <button class="btn-cancel"  onclick="closeSendModal()">Отмена</button>
+      <button class="btn-confirm" onclick="confirmSend()" id="btnConfirm">✉️ Отправить</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

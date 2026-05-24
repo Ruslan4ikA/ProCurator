@@ -86,30 +86,10 @@ def _execute_command(intent: dict) -> str:
         return (f"✅ Отчёт за {n} семестр для **{group_name}** готов.\n"
                 f"Файлов: {len(files)}. Нажмите «Отправить» для рассылки.")
 
-    elif func == "report_student":
-        from modules.reports import report_student
-        name = params.get("student_name", "")
-        n = params.get("num_sem")
-        if not name:
-            return "❓ Укажите фамилию студента. Например: «отчёт по Иванову за 5 семестр»"
-        result = report_student(df, group_name, name, num_sem=int(n) if n else None)
-        # report_student возвращает (files, matched_name) или ([], error_str)
-        if isinstance(result, tuple):
-            files, matched = result
-        else:
-            files, matched = result, name
-        if not files:
-            return f"⚠️ {matched}"
-        _last_reports = files
-        sem_info = f" за {n} семестр" if n else " за весь период"
-        return (f"✅ **Тип отчёта: По студенту · {matched}{sem_info}**\n"
-                f"Файлов: {len(files)} (.xlsx + .pdf). Нажмите «Отправить» для рассылки.")
-
     return ("❓ Не могу распознать запрос. Попробуйте:\n"
             "• «отчёт по должникам за 6 семестр»\n"
             "• «полный отчёт за весь период»\n"
             "• «отчёт за 5 семестр»\n"
-            "• «отчёт по Иванову за 5 семестр»\n"
             "• «статистика»\n"
             "• «отправить отчёты»")
 
@@ -217,6 +197,26 @@ def api_run_now():
             logger.error(f"Ошибка немедленного запуска: {e}")
     threading.Thread(target=task, daemon=True).start()
     return jsonify({"success":True,"message":"Задача запущена в фоне"})
+
+
+@app.route("/api/preview_send", methods=["POST"])
+def api_preview_send():
+    """Превью рассылки для модального окна подтверждения."""
+    if not _last_reports:
+        return jsonify({
+            "success": False, "preview": [], "files": [],
+            "message": "Нет готовых отчётов. Сначала сформируйте отчёт."
+        })
+    from modules.sender import preview_send
+    conf = cfg.load()
+    recipients_file = conf.get("recipients_excel_path", "").strip()
+    preview = preview_send(_last_reports, recipients_file)
+    return jsonify({
+        "success": True,
+        "preview": preview,
+        "files": [os.path.basename(f) for f in _last_reports],
+        "total": len(preview)
+    })
 
 
 if __name__ == "__main__":
