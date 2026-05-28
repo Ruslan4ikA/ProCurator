@@ -107,6 +107,38 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); heig
 .stat-count.err { color: var(--red); }
 .stat-count.warn { color: var(--amber); }
 .stat-count.ok { color: var(--green); }
+
+/* ── Переключатель темы ── */
+.theme-toggle {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 17px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { background: var(--surface2); color: var(--text); border-color: var(--accent); }
+
+/* Светлая тема через атрибут на html */
+html[data-theme="light"] {
+  /* Светлая тема */
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface2: #f0f2f5;
+  --border: #d0d7de;
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --accent-glow: rgba(37,99,235,0.10);
+  --green: #22c55e; --red: #ef4444; --amber: #f59e0b; --blue: #3b82f6;
+  --text: #1c2128;
+  --text-muted: #57606a;
+  --text-dim: #8c959f;
+}
+
 </style>
 </head>
 <body>
@@ -121,6 +153,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); heig
     <a href="/" class="nav-btn">💬 Чат</a>
     <a href="/settings" class="nav-btn">⚙️ Настройки</a>
     <a href="/logs" class="nav-btn active">📋 Логи</a>
+  <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Переключить тему">☀️</button>
   </nav>
 </header>
 
@@ -215,6 +248,23 @@ function escHtml(s) {
 // Инициализация
 loadLogs();
 setInterval(loadLogs, 5000);  // автообновление каждые 5 сек
+
+// ── Тема ─────────────────────────────────────────────────
+(function(){
+  const saved = localStorage.getItem('curator-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  const btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+})();
+
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('curator-theme', next);
+  const btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = next === 'dark' ? '☀️' : '🌙';
+}
 </script>
 </body>
 </html>
