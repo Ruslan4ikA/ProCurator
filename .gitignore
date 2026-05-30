@@ -4,7 +4,7 @@
 /venv
 /.idea
 /__pycache__
-/modules/__pycache__
+modules/__pycache__/
 
 settings.json
 .secret_key
