@@ -31,3 +31,6 @@ requests>=2.31.0
 
 # Графики (опционально)
 matplotlib>=3.8.0
+
+# Создание файла отчета по группе
+pip install python-docx

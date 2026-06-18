@@ -526,36 +526,24 @@ textarea::placeholder { color: var(--text-dim); }
   .modal-empty { color: #f7768e; text-align: center; padding: 20px 0; }
 
 
-/* ── Переключатель темы ── */
-.theme-toggle {
-  width: 36px; height: 36px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 17px;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.15s;
-  flex-shrink: 0;
-}
-.theme-toggle:hover { background: var(--surface2); color: var(--text); border-color: var(--accent); }
-
-/* Светлая тема через атрибут на html */
-html[data-theme="light"] {
-  /* Светлая тема */
-  --bg: #f6f8fa;
-  --surface: #ffffff;
-  --surface2: #f0f2f5;
-  --border: #d0d7de;
-  --accent: #2563eb;
-  --accent-light: #3b82f6;
-  --accent-glow: rgba(37,99,235,0.10);
-  --green: #22c55e; --red: #ef4444; --amber: #f59e0b; --blue: #3b82f6;
-  --text: #1c2128;
-  --text-muted: #57606a;
-  --text-dim: #8c959f;
-}
+  .theme-toggle {
+    width: 36px; height: 36px;
+    border-radius: var(--radius-sm, 8px);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 17px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { background: var(--surface2); color: var(--text); border-color: var(--accent); }
+  html[data-theme="light"] {
+    --bg: #f6f8fa; --surface: #ffffff; --surface2: #f0f2f5;
+    --border: #d0d7de; --text: #1c2128; --text-muted: #57606a; --text-dim: #8c959f;
+    --accent: #2563eb; --green: #22c55e; --red: #ef4444; --amber: #f59e0b; --blue: #3b82f6;
+  }
 
 </style>
 </head>
@@ -648,6 +636,14 @@ html[data-theme="light"] {
       <button class="send-btn" id="sendBtn" onclick="openSendModal()">
         📤 Отправить отчёты
       </button>
+      <button class="send-btn" id="curatorReportBtn"
+              onclick="downloadCuratorReport()"
+              style="margin-top:10px;background:var(--surface2);color:var(--text);border:1px solid var(--border);">
+        📋 Скачать план-отчёт
+      </button>
+      <p style="font-size:11px;color:var(--text-dim);margin-top:4px;text-align:center;" id="curatorReportLabel">
+        Предзаполненный отчёт куратора (.docx)
+      </p>
       <p style="font-size:11px;color:var(--text-dim);margin-top:6px;text-align:center;" id="sendLabel">
         Сначала сформируйте отчёт
       </p>
@@ -964,7 +960,7 @@ async function confirmSend() {
 }
 
 
-// ── Тема ─────────────────────────────────────────────────
+// ── Тема ──────────────────────────────────────────────
 (function(){
   const saved = localStorage.getItem('curator-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
@@ -980,6 +976,7 @@ function toggleTheme() {
   const btn = document.getElementById('themeBtn');
   if (btn) btn.textContent = next === 'dark' ? '☀️' : '🌙';
 }
+
 </script>
 
 <!-- Модальное окно подтверждения рассылки -->

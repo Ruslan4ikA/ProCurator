@@ -1,7 +1,7 @@
 """Flask-сервер AI-ассистента куратора."""
 import os, sys, threading
 from pathlib import Path
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 
 sys.path.insert(0, str(Path(__file__).parent))
 from logger import logger, get_recent_logs
@@ -124,29 +124,28 @@ def api_send():
 
 @app.route("/api/settings", methods=["GET"])
 def api_get_settings():
-    conf = cfg.load()  # уже расшифрован
-    # Маскируем пароли перед отправкой в браузер
-    safe = dict(conf)
-    for field in ("portal_password", "smtp_password"):
-        safe[field] = "●●●●●●" if conf.get(field) else ""
+    conf = cfg.load()
+    safe = {k: v for k,v in conf.items() if k not in {"portal_password","smtp_password"}}
+    safe["portal_password"] = "●●●●●●" if conf.get("portal_password") else ""
+    safe["smtp_password"]   = "●●●●●●" if conf.get("smtp_password") else ""
     return jsonify(safe)
 
 @app.route("/api/settings", methods=["POST"])
 def api_save_settings():
     data = request.json
-    conf = cfg.load()  # загружаем расшифрованный конфиг
+    conf = cfg.load()
 
-    login    = data.get("portal_login", "")
+    login = data.get("portal_login", "")
     password = data.get("portal_password", "")
 
     for key, value in data.items():
         if value == "●●●●●●":
-            continue  # не перезаписываем замаскированные поля
+            continue
         conf[key] = value
 
-    cfg.save(conf)  # сохраняет с шифрованием автоматически
+    cfg.save(conf)
 
-    # Дополнительно обновляем credentials.enc для scraper (обратная совместимость)
+    # Сохраняем учётные данные в зашифрованный файл (как в ProCurator)
     if login and password and password != "●●●●●●":
         try:
             from modules.scraper import save_credentials_from_settings
@@ -156,7 +155,7 @@ def api_save_settings():
 
     scheduler.stop()
     scheduler.start()
-    logger.info("Настройки сохранены (данные зашифрованы)")
+    logger.info("Настройки сохранены")
     return jsonify({"success": True, "message": "Настройки сохранены"})
 
 @app.route("/api/test/email", methods=["POST"])
@@ -218,6 +217,29 @@ def api_preview_send():
         "files": [os.path.basename(f) for f in _last_reports],
         "total": len(preview)
     })
+
+
+@app.route("/api/curator_report", methods=["GET"])
+def api_curator_report():
+    """Генерирует план-отчёт куратора (.docx) и отдаёт на скачивание."""
+    if _last_df is None or _last_group is None:
+        return jsonify({"success": False,
+                        "message": "Сначала сформируйте любой отчёт, чтобы загрузить данные с портала"}), 400
+    try:
+        from modules.curator_report import generate_curator_report
+        import io
+        docx_bytes = generate_curator_report(_last_df, _last_group)
+        return send_file(
+            io.BytesIO(docx_bytes),
+            mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            as_attachment=True,
+            download_name=f"Отчёт_куратора_{_last_group}.docx"
+        )
+    except FileNotFoundError as e:
+        return jsonify({"success": False, "message": str(e)}), 404
+    except Exception as e:
+        logger.error(f"Ошибка генерации отчёта куратора: {e}")
+        return jsonify({"success": False, "message": f"Ошибка: {e}"}), 500
 
 
 if __name__ == "__main__":
