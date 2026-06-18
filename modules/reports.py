@@ -395,13 +395,24 @@ def report_student(df, group_name: str, student_name: str, num_sem=None):
     student_cols = get_student_cols(df)
 
     # Ищем столбец (регистронезависимо, по подстроке)
+    def _stem(s):
+        """Возвращает первые N символов для нечёткого совпадения."""
+        return s.lower()[:max(4, len(s)-2)]
+
+    stem = _stem(student_name)
+
+    # 1. Прямое вхождение (именительный падеж)
     matched = [c for c in student_cols if student_name.lower() in c.lower()]
 
+    # 2. По основе (обрезаем 2 последних символа — убираем падежные окончания)
     if not matched:
-        # Пробуем частичное совпадение по первым буквам слова
+        matched = [c for c in student_cols if stem in c.lower()]
+
+    # 3. По каждому слову ФИО
+    if not matched:
         matched = [
             c for c in student_cols
-            if any(student_name.lower() in w.lower() for w in c.split())
+            if any(stem in w.lower() for w in c.split())
         ]
 
     if not matched:

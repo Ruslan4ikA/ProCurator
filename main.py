@@ -86,6 +86,24 @@ def _execute_command(intent: dict) -> str:
         return (f"✅ Отчёт за {n} семестр для **{group_name}** готов.\n"
                 f"Файлов: {len(files)}. Нажмите «Отправить» для рассылки.")
 
+    elif func == "report_student":
+        from modules.reports import report_student
+        name = params.get("student_name", "")
+        n = params.get("num_sem")
+        if not name:
+            return "❓ Укажите фамилию студента. Например: «отчёт по Иванову за 5 семестр»"
+        result = report_student(df, group_name, name, num_sem=int(n) if n else None)
+        if isinstance(result, tuple):
+            files, matched = result
+        else:
+            return f"⚠️ Не удалось сформировать отчёт: {result}"
+        if not files:
+            return f"⚠️ {matched}"
+        _last_reports = files
+        sem_info = f" за {n} семестр" if n else " за весь период"
+        return (f"✅ **Тип отчёта: По студенту · {matched}{sem_info}**\n"
+                f"Файлов: {len(files)} (.xlsx + .pdf). Нажмите «Отправить» для рассылки.")
+
     return ("❓ Не могу распознать запрос. Попробуйте:\n"
             "• «отчёт по должникам за 6 семестр»\n"
             "• «полный отчёт за весь период»\n"
@@ -221,13 +239,12 @@ def api_preview_send():
 
 @app.route("/api/curator_report", methods=["GET"])
 def api_curator_report():
-    """Генерирует план-отчёт куратора (.docx) и отдаёт на скачивание."""
     if _last_df is None or _last_group is None:
         return jsonify({"success": False,
-                        "message": "Сначала сформируйте любой отчёт, чтобы загрузить данные с портала"}), 400
+                        "message": "Сначала сформируйте любой отчёт"}), 400
     try:
-        from modules.curator_report import generate_curator_report
         import io
+        from modules.curator_report import generate_curator_report
         docx_bytes = generate_curator_report(_last_df, _last_group)
         return send_file(
             io.BytesIO(docx_bytes),

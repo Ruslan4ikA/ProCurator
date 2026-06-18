@@ -524,27 +524,36 @@ textarea::placeholder { color: var(--text-dim); }
                  padding: 9px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; }
   .btn-confirm:hover { background: #27ae60; }
   .modal-empty { color: #f7768e; text-align: center; padding: 20px 0; }
+/* ── Переключатель темы ── */
+.theme-toggle {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 17px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { background: var(--surface2); color: var(--text); border-color: var(--accent); }
 
-
-  .theme-toggle {
-    width: 36px; height: 36px;
-    border-radius: var(--radius-sm, 8px);
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-muted);
-    cursor: pointer;
-    font-size: 17px;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s;
-    flex-shrink: 0;
-  }
-  .theme-toggle:hover { background: var(--surface2); color: var(--text); border-color: var(--accent); }
-  html[data-theme="light"] {
-    --bg: #f6f8fa; --surface: #ffffff; --surface2: #f0f2f5;
-    --border: #d0d7de; --text: #1c2128; --text-muted: #57606a; --text-dim: #8c959f;
-    --accent: #2563eb; --green: #22c55e; --red: #ef4444; --amber: #f59e0b; --blue: #3b82f6;
-  }
-
+/* Светлая тема через атрибут на html */
+html[data-theme="light"] {
+  /* Светлая тема */
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface2: #f0f2f5;
+  --border: #d0d7de;
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --accent-glow: rgba(37,99,235,0.10);
+  --green: #22c55e; --red: #ef4444; --amber: #f59e0b; --blue: #3b82f6;
+  --text: #1c2128;
+  --text-muted: #57606a;
+  --text-dim: #8c959f;
+}
 </style>
 </head>
 <body>
@@ -559,7 +568,6 @@ textarea::placeholder { color: var(--text-dim); }
     <a href="/" class="nav-btn active">💬 Чат</a>
     <a href="/settings" class="nav-btn">⚙️ Настройки</a>
     <a href="/logs" class="nav-btn">📋 Логи</a>
-  <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Переключить тему">☀️</button>
   </nav>
 </header>
 
@@ -638,6 +646,7 @@ textarea::placeholder { color: var(--text-dim); }
       </button>
       <button class="send-btn" id="curatorReportBtn"
               onclick="downloadCuratorReport()"
+              disabled
               style="margin-top:10px;background:var(--surface2);color:var(--text);border:1px solid var(--border);">
         📋 Скачать план-отчёт
       </button>
@@ -719,12 +728,15 @@ function setPill(id, ok, label) {
 function updateSendBtn() {
   const btn = document.getElementById('sendBtn');
   const lbl = document.getElementById('sendLabel');
+  const crBtn = document.getElementById('curatorReportBtn');
   if (reportsReady) {
     btn.classList.add('ready');
     lbl.textContent = `${document.getElementById('pill-send').textContent.trim()} готов`;
+    if (crBtn) { crBtn.classList.add('ready'); crBtn.disabled = false; }
   } else {
     btn.classList.remove('ready');
     lbl.textContent = 'Сначала сформируйте отчёт';
+    if (crBtn) { crBtn.classList.remove('ready'); crBtn.disabled = true; }
   }
 }
 
@@ -896,8 +908,7 @@ async function openSendModal() {
   // Если preview пуст — всё равно показываем модал с предупреждением
 
   // Файлы
-<!--  document.getElementById('modalFiles').textContent =-->
-<!--    '📎 Файлы: ' + (d.files.length ? d.files.join(', ') : 'нет');-->
+  // (показ файлов отключён)
 
   // Строки получателей
   const container = document.getElementById('modalRows');
@@ -959,8 +970,7 @@ async function confirmSend() {
   showToast(d.success ? '✅ ' + d.message : '❌ ' + d.message, d.success ? 'success' : 'error');
 }
 
-
-// ── Тема ──────────────────────────────────────────────
+// ── Тема ─────────────────────────────────────────────────
 (function(){
   const saved = localStorage.getItem('curator-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
@@ -975,6 +985,37 @@ function toggleTheme() {
   localStorage.setItem('curator-theme', next);
   const btn = document.getElementById('themeBtn');
   if (btn) btn.textContent = next === 'dark' ? '☀️' : '🌙';
+}
+
+async function downloadCuratorReport() {
+  const btn = document.getElementById('curatorReportBtn');
+  const origHTML = btn ? btn.innerHTML : '';
+  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Формируется...'; }
+  try {
+    const resp = await fetch('/api/curator_report');
+    if (!resp.ok) {
+      let msg = 'Ошибка генерации отчёта';
+      try { const err = await resp.json(); msg = err.message || msg; } catch(e) {}
+      showToast('❌ ' + msg, 'error');
+      return;
+    }
+    const blob = await resp.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const cd = resp.headers.get('content-disposition') || '';
+    const m = cd.match(/filename[^;=\n]*=([^;\n]*)/i);
+    a.download = m ? decodeURIComponent(m[1].replace(/['"]/g,'').trim()) : 'Отчёт_куратора.docx';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('✅ Отчёт куратора скачан', 'success');
+  } catch(e) {
+    showToast('❌ Ошибка: ' + e.message, 'error');
+  } finally {
+    if (btn) { btn.disabled = false; btn.innerHTML = origHTML; }
+  }
 }
 
 </script>

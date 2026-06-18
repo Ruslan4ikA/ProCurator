@@ -6,6 +6,44 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from logger import logger
 import config as cfg
 
+# Слова, которые НЕ являются именем студента
+_STOP_WORDS = {
+    "отчет", "отчёт", "ведомость", "напиши", "сделай", "покажи", "дай",
+    "хочу", "нужен", "нужно", "мне", "по", "для", "за", "студента",
+    "студент", "весь", "период", "полный", "общий", "сводный",
+    "семестр", "семестра", "группу", "группе", "группа",
+    "индивидуальн", "отдельно", "каждого", "каждому", "каждый",
+    "составь", "сформируй", "создай",
+}
+
+
+def _normalize_name(name: str) -> str:
+    """
+    Приводит имя из косвенного падежа к именительному (упрощённо).
+    Пример: Абзелилову → Абзелилов, Иванова → Иванов/Иванова (оставляем как есть если -ова),
+    Кардашу → Кардаш, Беляеву → Беляев.
+    Логика: пробуем убрать типичные окончания косвенных падежей.
+    """
+    endings = ["ову", "еву", "ёву", "ому", "ему", "ым", "им",
+               "ого", "его", "ём", "ем", "у", "ю"]
+    n = name
+    for end in endings:
+        if n.lower().endswith(end) and len(n) - len(end) >= 3:
+            n = n[:-len(end)]
+            break
+    return n
+
+
+def _extract_student_name(original_text: str) -> str | None:
+    """Ищет фамилию/имя студента — слово с заглавной буквы, не стоп-слово."""
+    for word in original_text.split():
+        clean = re.sub(r"[^а-яёА-ЯЁa-zA-Z\-]", "", word)
+        if (len(clean) > 2
+                and clean[0].isupper()
+                and clean.lower() not in _STOP_WORDS):
+            return _normalize_name(clean)
+    return None
+
 
 def parse_intent(user_message: str) -> dict:
     conf = cfg.load()
@@ -21,13 +59,15 @@ def parse_intent(user_message: str) -> dict:
             'Команды:\n'
             '  report_debtors     — должники, params: {"num_sem": <число>}\n'
             '  report_full_period — весь период группы, params: {"individual": true/false}\n'
-            '  report_by_semester — за семестр по группе, params: {"semester_number": <число>, "individual": true/false}\n'
-            '  report_student     — отчёт по конкретному студенту, params: {"student_name": "<фамилия>", "num_sem": <число или null>}\n'
+            '  report_by_semester — за семестр по группе, params: {"semester_number": <число>}\n'
+            '  report_student     — отчёт по конкретному студенту, '
+            'params: {"student_name": "<фамилия>", "num_sem": <число или null>}\n'
             '  send_reports       — отправить отчёты, params: {}\n'
             '  get_stats          — статистика, params: {}\n\n'
             f'Запрос: "{user_message}"\n\n'
             'Примеры:\n'
-            '"отчет по Кардаш за 5 семестр" -> {"function":"report_student","params":{"student_name":"Кардаш","num_sem":5}}\n'
+            '"отчет по Абзелилову за 4 семестр" -> '
+            '{"function":"report_student","params":{"student_name":"Абзелилов","num_sem":4}}\n'
             '"должники за 6 семестр" -> {"function":"report_debtors","params":{"num_sem":6}}\n'
             '"полный отчёт" -> {"function":"report_full_period","params":{"individual":false}}\n\n'
             'JSON:'
@@ -40,7 +80,6 @@ def parse_intent(user_message: str) -> dict:
         )
         resp.raise_for_status()
         raw = resp.json().get("response", "").strip()
-        # Очищаем любой мусор вокруг JSON
         raw = re.sub(r"```(?:json)?", "", raw).replace("```", "").strip()
         m = re.search(r"\{.*?\}", raw, re.DOTALL)
         if m:
@@ -56,74 +95,41 @@ def parse_intent(user_message: str) -> dict:
     return _rule_based(user_message)
 
 
-# Слова которые НЕ являются именем студента
-_STOP_WORDS = {
-    "отчет", "отчёт", "ведомость", "напиши", "сделай", "покажи", "дай",
-    "хочу", "нужен", "нужно", "мне", "по", "для", "за", "студента",
-    "студент", "весь", "период", "полный", "общий", "сводный",
-    "семестр", "семестра", "группу", "группе", "группа", "индивидуальн",
-    "отдельно", "каждого", "каждому", "каждый",
-}
-
-
-def _extract_student_name(original_text: str) -> str | None:
-    """
-    Ищет слово с заглавной буквы которое не является стоп-словом.
-    Работает с оригинальным текстом (не lower), чтобы видеть заглавные буквы.
-    """
-    for word in original_text.split():
-        # Убираем знаки препинания
-        clean = re.sub(r"[^а-яёА-ЯЁa-zA-Z\-]", "", word)
-        if (len(clean) > 2
-                and clean[0].isupper()
-                and clean.lower() not in _STOP_WORDS):
-            return clean
-    return None
-
-
 def _rule_based(text: str) -> dict:
     t = text.lower()
 
-    # Флаг индивидуальных
     individual = any(w in t for w in [
         "индивид", "каждого", "каждому", "каждый", "отдельно", "персональн"
     ])
 
-    # Номер семестра
     m = re.search(r"(\d+)\s*сем", t)
     num = int(m.group(1)) if m else None
 
-    # Имя студента — ищем в ОРИГИНАЛЬНОМ тексте (с заглавными)
+    # Имя ищем в оригинальном тексте (с заглавными)
     student_name = _extract_student_name(text)
 
-    # Отправка
     if any(w in t for w in ["отправ", "разосл", "рассыл", "выслать", "послать"]):
         return {"function": "send_reports", "params": {}}
 
-    # Статистика
-    if any(w in t for w in ["статистик", "сводк", "картин", "как дела", "итог", "средний балл"]):
+    if any(w in t for w in ["статистик", "сводк", "картин", "как дела", "средний балл"]):
         return {"function": "get_stats", "params": {}}
 
-    # Должники
-    if any(w in t for w in ["должн", "задолж", "задолженн", "не сдал", "завалил"]):
+    if any(w in t for w in ["должн", "задолж", "задолженн", "не сдал"]):
         return {"function": "report_debtors",
                 "params": {"num_sem": num if num else 6}}
 
-    # ВАЖНО: отчёт по студенту — проверяем ДО report_by_semester
+    # ВАЖНО: report_student ДО report_by_semester
     if student_name:
         return {"function": "report_student",
                 "params": {"student_name": student_name, "num_sem": num}}
 
-    # Отчёт за конкретный семестр по всей группе
     if num and any(w in t for w in ["отчёт", "отчет", "ведомость", "успевае", "семестр"]):
         return {"function": "report_by_semester",
                 "params": {"semester_number": num, "individual": individual}}
 
-    # Индивидуальные отчёты
     if individual:
         return {"function": "report_full_period", "params": {"individual": True}}
 
-    # Полный отчёт за весь период
     if any(w in t for w in ["весь", "период", "полн", "сводн", "общ", "все"]):
         return {"function": "report_full_period", "params": {"individual": False}}
 
